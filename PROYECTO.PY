@@ -78,12 +78,7 @@ while bool==True:
                                     print("")
                     if opc==2:
                         pedir=input("ingresa el id del estudiante al que le quieres asignar notas\n")
-                        for i in miArchivo[0]["grupos"]:
-                            for z in i["grupo"]:
-                                if z["id"]==pedir:
-                                    print("ingresa las notas para ",z["nombre"])
-                                    nota1=float(input("nota 1: "))
-                                    nota2=float(input("nota 2: "))
+                        
 
                 except ValueError:
                     print("solo se pueden ingresar numeros")
