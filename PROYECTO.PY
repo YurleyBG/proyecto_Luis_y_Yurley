@@ -18,24 +18,25 @@ def menu():
           "4 SALIR")
     
 def menucoordinador():
-    print("::::::::::MENU::::::::::\n"
+    print("::::::::::MENÚ::::::::::\n"
           "1 listar estudiantes\n"
-          "2 asignar notas a los campers que estan en progreso de ingreso\n"
-          "3 crear rutas academicas con los modulos\n"
-          "4 asignar rutas de entrenamiento a los traniers\n"
-          "5 modulo de matriculas\n"
-          "6 notas de modulos"
-          "7 consultar campers con riesgo alto\n"
-          "8 volver al menu principal")
+          "2 ingresar nuevos campers\n"
+          "3 asignar notas a los campers que estan en progreso de ingreso y asignación de grupo\n"
+          "4 crear rutas academicas con los modulos\n"
+          "5 asignar rutas de entrenamiento a los traniers\n"
+          "6 modulo de matriculas\n"
+          "7 notas de modulos"
+          "8 consultar campers con riesgo alto\n"
+          "9 volver al menu principal")
 
 def menutrainer():
-    print("::::::::::::::MENU:::::::::::::\n"
+    print("::::::::::::::MENÚ:::::::::::::\n"
           "1 mostrar horarios y ruta de los trainers\n"
           "2 volver al menu principal")
 
 
 def menureportes():
-     print("::::::::::MENU::::::::::\n"
+     print("::::::::::MENÚ::::::::::\n"
            "1 listar campers inscritos\n"
            "2 listar los campers que aprobaron el examen principal\n"
            "3 listar todos los entrenadores\n"
@@ -53,6 +54,7 @@ while bool==True:
     try:
         opc=int(input("ingrese su opcion por favor: "))
         if opc==1:
+            print("")
             print("MODULO DE COORDINACION ACADEMICA")
             print("")
             menucoordinador()
@@ -87,9 +89,27 @@ while bool==True:
 
                     if opc==2:
                         miArchivo=abrirArchivo()
+                        print("")
+                        print(":::::::::AÑADIR NUEVO CAMPER:::::::::")
+                        id=input("ingrese la id que quiere ingresar: ")
+                        nombre=input("ingrese el nombre: ")
+                        apellido=input("ingrese el apellido: ")
+                        edad=input("ingrese la edad: ")
+                        direccion=input("ingrese la direccion: ")
+                        acudiente=input("ingrese el nombre del acudiente:  ")
+                        celular=int(input("ingrese el numero:  "))
+                        fijo=int(input("ingrese numero fijo:  "))
+                    
+                        miArchivo[0]["ingreso"].append({"id":id,"nombre":nombre,"apellido":apellido,"edad":edad, "direccion":direccion, "telefono": {"celular":celular, "fijo":fijo},"estado":"progreso de ingreso", "riesgo":""})
+                        print("se ha creado con exito!!")
+                        guardarArchivo(miArchivo)
+                    
+
+                    if opc==3:
+                        miArchivo=abrirArchivo()
                         print("estos son los estudiantes que estan en estado de ingreso")
                         for i in miArchivo[0]["ingreso"]:
-                            if i["estado"]=="en progreso de ingreso":
+                            if i["estado"]=="progreso de ingreso":
                                 print("=========================================================")
                                 print("id:  ",i["id"])
                                 print("nombre:  ",i["nombre"])
@@ -98,8 +118,10 @@ while bool==True:
                                 print("=========================================================")
                                 print("")
                         pedir=input("ingresa el id del estudiante al que le quieres asignar notas\n")
+                        xd=0
                         for i in miArchivo[0]["ingreso"]:
                             if i["id"]==pedir:
+                                archivo=i
                                 print("ingresa las notas")
                                 nota1=float(input("nota de la prueba teorica:  "))
                                 nota2=float(input("nota de la prueba practica:  "))
@@ -116,9 +138,15 @@ while bool==True:
                                             print("--------")
                                             print(miArchivo[0]["grupos"][i]["nombres"])
                                         pregunta2=input("a que grupo deseas agregarlo")
-                                        
+                                        for i in miArchivo[0]["grupos"]:
+                                            if pregunta2==i["nombres"]:
+                                                i["grupo"].append(archivo)
+                                                xd=xd+1
                                         print("se han aplicado los cambios")
-                                        
+                        for i in range(len(miArchivo[0]["ingreso"])-1,-1,-1):
+                            if miArchivo[0]["ingreso"][i]["estado"]=="aprobado":
+                                miArchivo[0]["ingreso"].pop(i)
+                        guardarArchivo(miArchivo)
                         menucoordinador()
 
                 except ValueError:
