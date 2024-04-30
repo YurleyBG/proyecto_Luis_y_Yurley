@@ -103,6 +103,7 @@ while bool==True:
                         miArchivo[0]["ingreso"].append({"id":id,"nombre":nombre,"apellido":apellido,"edad":edad, "direccion":direccion, "telefono": {"celular":celular, "fijo":fijo},"estado":"progreso de ingreso", "riesgo":""})
                         print("se ha creado con exito!!")
                         guardarArchivo(miArchivo)
+                        menucoordinador()
                     
 
                     if opc==3:
@@ -118,7 +119,7 @@ while bool==True:
                                 print("=========================================================")
                                 print("")
                         pedir=input("ingresa el id del estudiante al que le quieres asignar notas\n")
-                        xd=0
+                        
                         for i in miArchivo[0]["ingreso"]:
                             if i["id"]==pedir:
                                 archivo=i
@@ -133,30 +134,34 @@ while bool==True:
                                     pregunta1=input("esta persona aprobó quieres cambiar su estado a aprobado (si)(no):  ")
                                     if pregunta1=="si":
                                         i["estado"]="aprobado"
-                                        print("estos son los grupos que existen")
+                                        print("estos son los grupos que estan disponibles")
                                         for i in range(len(miArchivo[0]["grupos"])):
-                                            print("--------")
-                                            print(miArchivo[0]["grupos"][i]["nombres"])
+                                            if len(miArchivo[0]["grupos"][i]["grupo"])<33:
+                                                print("--------")
+                                                print(miArchivo[0]["grupos"][i]["nombres"])
                                         pregunta2=input("a que grupo deseas agregarlo")
                                         for i in miArchivo[0]["grupos"]:
                                             if pregunta2==i["nombres"]:
                                                 i["grupo"].append(archivo)
-                                                xd=xd+1
+                                                
                                         print("se han aplicado los cambios")
                         for i in range(len(miArchivo[0]["ingreso"])-1,-1,-1):
                             if miArchivo[0]["ingreso"][i]["estado"]=="aprobado":
                                 miArchivo[0]["ingreso"].pop(i)
                         guardarArchivo(miArchivo)
                         menucoordinador()
-
+                    
+                    if opc==9:
+                        ver=False
+                        menu()
                 except ValueError:
                     print("solo se pueden ingresar numeros")
         elif opc==3:
             print("MODULO DE REPORTES")
             print("")
             menureportes()
-            bool=True
-            while bool==True:
+            mjb=True
+            while mjb==True:
                 try:
                     opc=int(input("ingrese su opcion porfavor: "))
                     if opc==1:
@@ -216,11 +221,15 @@ while bool==True:
                                     print("")
                         menureportes() 
                     if opc==7:
+                        mjb=False
                         menu()
 
                 except ValueError:
-                    print("solo se pueden ingresar numeros")
+                    print("INGRESA UNA OPCIÓN VALIDA")
+        if opc==4:
+            print("HASTA LA PROXIMA\nPROGRAMA FINALIZADO :)")
+            bool=False
     except ValueError:
-       print("solo se pueden ingresar numeros")
+       print("INGRESA UNA OPCIÓN VALIDA")
 
     
