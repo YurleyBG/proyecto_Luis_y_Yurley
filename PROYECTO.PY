@@ -28,6 +28,12 @@ def menucoordinador():
           "7 consultar campers con riesgo alto\n"
           "8 volver al menu principal")
 
+def menutrainer():
+    print("::::::::::::::MENU:::::::::::::\n"
+          "1 mostrar horarios y ruta de los trainers\n"
+          "2 volver al menu principal")
+
+
 def menureportes():
      print("::::::::::MENU::::::::::\n"
            "1 listar campers inscritos\n"
@@ -114,6 +120,75 @@ while bool==True:
                                         print("se han aplicado los cambios")
                                         
                         menucoordinador()
+
+                except ValueError:
+                    print("solo se pueden ingresar numeros")
+        elif opc==3:
+            print("MODULO DE REPORTES")
+            print("")
+            menureportes()
+            bool=True
+            while bool==True:
+                try:
+                    opc=int(input("ingrese su opcion porfavor: "))
+                    if opc==1:
+                        for i in range(len(miArchivo[0]["grupos"])):
+                                    print("--------")
+                                    print(miArchivo[0]["grupos"][i]["nombres"])
+                                    cont=0
+                        grip=input("que grupo quieres listar\n")
+                        for i in range(len(miArchivo[0]["grupos"])):
+                                    if miArchivo[0]["grupos"][i]["nombres"]==grip:
+                                        for z in miArchivo[0]["grupos"][i]["grupo"]:
+                                            cont+=1
+                                            print(" ")
+                                            print("==================== CAMPER # ",cont,"==============================")
+                                            print("id: ",z["id"])
+                                            print("nombre: ", z["nombre"])
+                                            print("apellido: ", z["apellido"])
+                                            print("edad: ", z["edad"])
+                                            print("direccion: ", z["direccion"])
+                                            print("acudiente: ", z["acudiente"])
+                                            print("telefono: ", z["telefono"])
+                                            print("estado: ", z["estado"])
+                                            print("riesgo: ", z["riesgo"])
+                                            print("=========================================================")
+                                            print("")
+                        menureportes()                    
+                    if opc==3:
+                        print("") 
+                        print("::::::::::::::TRAINERS:::::::::::::::") 
+                        for i in miArchivo[0]["trainers"]:
+                            print(" ")
+                            print("==================================================")
+                            print("id: ",i["id"])
+                            print("nombre: ", i["nombre"])
+                            print("apellido: ", i["apellido"])
+                            print("edad: ", i["edad"])
+                            print("ruta: ", i["ruta"])
+                            print("grupos: ", i["grupos"])
+                            print("===================================================")
+                        menureportes()  
+                    if opc==4:
+                        print("") 
+                        print("")
+                        print("::::::::::::::CAMPERS DE BAJO RENDIMIENTO:::::::::::::::") 
+                        print("Todos aquellos campers que cuenta con un riesgo alto equivale a un rendimiento bajo")
+                        for i in miArchivo[0]["grupos"]:
+                            for a in i["grupo"]:
+                        
+                                if a["riesgo"]=="alto":
+                                    print(" ")
+                                    print("==================================================")
+                                    print("id: ",a["id"])
+                                    print("nombre: ", a["nombre"])
+                                    print("apellido: ", a["apellido"])
+                                    print("riesgo: ", a["riesgo"])
+                                    print("===================================================")
+                                    print("")
+                        menureportes() 
+                    if opc==7:
+                        menu()
 
                 except ValueError:
                     print("solo se pueden ingresar numeros")
