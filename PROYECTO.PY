@@ -20,7 +20,7 @@ def menu():
 def menucoordinador():
     print("::::::::::MENU::::::::::\n"
           "1 listar estudiantes\n"
-          "2 asignar notas\n"
+          "2 asignar notas a los campers que estan en progreso de ingreso\n"
           "3 crear rutas academicas con los modulos\n"
           "4 asignar rutas de entrenamiento a los traniers\n"
           "5 modulo de matriculas\n"
@@ -78,8 +78,16 @@ while bool==True:
                                     print("")
                     if opc==2:
                         pedir=input("ingresa el id del estudiante al que le quieres asignar notas\n")
-                        
-
+                        print("estos son los estudiantes que estan en estado de ingreso")
+                        for i in miArchivo[0]["ingreso"]:
+                            if i["estado"]=="en progreso de ingreso":
+                                print("=========================================================")
+                                print("id:  ",i["id"])
+                                print("nombre:  ",i["nombre"])
+                                print("apellido:  ",i["apellido"])
+                                print("estado:  ",i["estado"])
+                                print("=========================================================")
+                                print("")
                 except ValueError:
                     print("solo se pueden ingresar numeros")
     except ValueError:

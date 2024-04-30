@@ -1,5 +1,6 @@
 [
     {
+        
         "grupos": [
             {
                 "nombres":"t1",
@@ -79,7 +80,7 @@
 
                     },
                     {
-                        "id":"5",
+                        "id":"6",
                         "nombre":"sofia",
                         "apellido":"suarez",
                         "edad":"19",
@@ -140,10 +141,34 @@
                 "sede": "tibu"
             }
 
+        ],
+        "ingreso":[
+            {
+                "id":"7",
+                "nombre":"juan",
+                "apellido":"perez",
+                "edad":"17",
+                "direccion":"18-call9",
+                "acudiente":"pedro",
+                "telefono":{"celular":322343458, "fijo":5547854},
+                "estado":"en progreso de ingreso",
+                "riesgo":""
+
+
+            },
+            {
+                "id":"8",
+                "nombre":"sara",
+                "apellido":"perez",
+                "edad":"20",
+                "direccion":"10-call8",
+                "acudiente":"sara",
+                "telefono":{"celular":322345456, "fijo":5645345},
+                "estado":"en progreso de ingreso",
+                "riesgo":""
+
+
+            }
         ]
-        
-    
-
 }
-
 ]
