@@ -24,8 +24,9 @@ def menucoordinador():
           "3 crear rutas academicas con los modulos\n"
           "4 asignar rutas de entrenamiento a los traniers\n"
           "5 modulo de matriculas\n"
-          "6 consultar campers con riesgo alto\n"
-          "7 volver al menu principal")
+          "6 notas de modulos"
+          "7 consultar campers con riesgo alto\n"
+          "8 volver al menu principal")
 
 def menureportes():
      print("::::::::::MENU::::::::::\n"
@@ -76,8 +77,10 @@ while bool==True:
                                     print("riesgo: ", z["riesgo"])
                                     print("=========================================================")
                                     print("")
+                        menucoordinador()
+
                     if opc==2:
-                        pedir=input("ingresa el id del estudiante al que le quieres asignar notas\n")
+                        miArchivo=abrirArchivo()
                         print("estos son los estudiantes que estan en estado de ingreso")
                         for i in miArchivo[0]["ingreso"]:
                             if i["estado"]=="en progreso de ingreso":
@@ -88,6 +91,30 @@ while bool==True:
                                 print("estado:  ",i["estado"])
                                 print("=========================================================")
                                 print("")
+                        pedir=input("ingresa el id del estudiante al que le quieres asignar notas\n")
+                        for i in miArchivo[0]["ingreso"]:
+                            if i["id"]==pedir:
+                                print("ingresa las notas")
+                                nota1=float(input("nota de la prueba teorica:  "))
+                                nota2=float(input("nota de la prueba practica:  "))
+                                nota1=nota1*30/90
+                                nota2=nota2*60/90
+                                resul=nota1+nota2
+                                print(resul)
+                                if resul>=60:
+                                    pregunta1=input("esta persona aprobó quieres cambiar su estado a aprobado (si)(no):  ")
+                                    if pregunta1=="si":
+                                        i["estado"]="aprobado"
+                                        print("estos son los grupos que existen")
+                                        for i in range(len(miArchivo[0]["grupos"])):
+                                            print("--------")
+                                            print(miArchivo[0]["grupos"][i]["nombres"])
+                                        pregunta2=input("a que grupo deseas agregarlo")
+                                        
+                                        print("se han aplicado los cambios")
+                                        
+                        menucoordinador()
+
                 except ValueError:
                     print("solo se pueden ingresar numeros")
     except ValueError:
