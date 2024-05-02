@@ -102,26 +102,6 @@
                         "riesgo": ""
                     }
                 ]
-            },
-            {
-                "ruta": "python",
-                "nombres": "t4",
-                "grupo": [
-                    {
-                        "id": "10",
-                        "nombre": "lucho",
-                        "apellido": "lopez",
-                        "edad": "25",
-                        "direccion": "sdgth",
-                        "acudiente": "lucho",
-                        "telefono": {
-                            "celular": 32134346,
-                            "fijo": 42342344
-                        },
-                        "estado": "aprobado",
-                        "riesgo": ""
-                    }
-                ]
             }
         ],
         "trainers": [
