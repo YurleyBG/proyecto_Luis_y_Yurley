@@ -2,6 +2,7 @@
     {
         "grupos": [
             {
+                "ruta": "nodeJS",
                 "nombres": "t1",
                 "grupo": [
                     {
@@ -35,6 +36,7 @@
                 ]
             },
             {
+                "ruta": "java",
                 "nombres": "t2",
                 "grupo": [
                     {
@@ -68,6 +70,7 @@
                 ]
             },
             {
+                "ruta": "NetCore",
                 "nombres": "t3",
                 "grupo": [
                     {
@@ -99,6 +102,26 @@
                         "riesgo": ""
                     }
                 ]
+            },
+            {
+                "ruta": "python",
+                "nombres": "t4",
+                "grupo": [
+                    {
+                        "id": "10",
+                        "nombre": "lucho",
+                        "apellido": "lopez",
+                        "edad": "25",
+                        "direccion": "sdgth",
+                        "acudiente": "lucho",
+                        "telefono": {
+                            "celular": 32134346,
+                            "fijo": 42342344
+                        },
+                        "estado": "aprobado",
+                        "riesgo": ""
+                    }
+                ]
             }
         ],
         "trainers": [
@@ -107,7 +130,7 @@
                 "nombre": "pedro",
                 "apellido": "canizares",
                 "edad": "24",
-                "ruta": "noteJS",
+                "ruta": "nodeJS",
                 "grupos": [
                     "t2",
                     "t3"
@@ -118,7 +141,7 @@
                 "nombre": "michael",
                 "apellido": " rodriguez",
                 "edad": "27",
-                "ruta": "rutajava",
+                "ruta": "java",
                 "grupos": [
                     "t2",
                     "t1"
@@ -129,7 +152,7 @@
                 "nombre": "orbin",
                 "apellido": "contreras",
                 "edad": "30",
-                "ruta": "rutaNetCore",
+                "ruta": "NetCore",
                 "grupos": [
                     "t1",
                     "t3"
@@ -141,6 +164,7 @@
                 "apellido": "rubio",
                 "edad": "28",
                 "ruta": "",
+                "trainer": "apoyo",
                 "grupos": [
                     "t1",
                     "t2",
@@ -164,26 +188,12 @@
                 "apellido": "perez",
                 "edad": "19",
                 "direccion": "18-call9",
-                "acudiente": "sara",
+                "acudiente": "saras",
                 "telefono": {
                     "celular": 322342342,
                     "fijo": 5532423
                 },
                 "estado": "progreso de ingreso",
-                "riesgo": ""
-            },
-            {
-                "id": "7",
-                "nombre": "juan",
-                "apellido": "perez",
-                "edad": "17",
-                "direccion": "18-call9",
-                "acudiente": "pedro",
-                "telefono": {
-                    "celular": 322343458,
-                    "fijo": 5547854
-                },
-                "estado": "aprobado",
                 "riesgo": ""
             }
         ]

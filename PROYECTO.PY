@@ -27,7 +27,9 @@ def menucoordinador():
           "6 modulo de matriculas\n"
           "7 notas de modulos"
           "8 consultar campers con riesgo alto\n"
-          "9 volver al menu principal")
+          "9 volver al menu principal\n"
+          ":::::::::::::::::::::::::\n")
+
 
 def menutrainer():
     print("::::::::::::::MENÚ:::::::::::::\n"
@@ -44,6 +46,13 @@ def menureportes():
            "5 listar campers y trainers que tienen ruta de entrenamiento\n"
            "6 mostrar cuantos campers perdieron y aprobaron cada uno de los modulos teniendo en cuenta la ruta de entrenamiento y el entrenador encargado\n"
            "7 volver al menu principal")
+def menumodulo():
+     print("==========MENÚ DE MODULOS============\n"
+            "1 fundamentos de programacion\n"
+            "2 programacion web\n"
+            "3 programacion formal\n"
+            "4 bases de datos\n"
+            "5 backend\n")
      
 
 miArchivo=[]
@@ -91,7 +100,7 @@ while bool==True:
                         miArchivo=abrirArchivo()
                         print("")
                         print(":::::::::AÑADIR NUEVO CAMPER:::::::::")
-                        id=input("ingrese la id que quiere ingresar: ")
+                        id=input("ingrese la id que quiere ing: ")
                         nombre=input("ingrese el nombre: ")
                         apellido=input("ingrese el apellido: ")
                         edad=input("ingrese la edad: ")
@@ -100,7 +109,7 @@ while bool==True:
                         celular=int(input("ingrese el numero:  "))
                         fijo=int(input("ingrese numero fijo:  "))
                     
-                        miArchivo[0]["ingreso"].append({"id":id,"nombre":nombre,"apellido":apellido,"edad":edad, "direccion":direccion, "telefono": {"celular":celular, "fijo":fijo},"estado":"progreso de ingreso", "riesgo":""})
+                        miArchivo[0]["ingreso"].append({"id":id,"nombre":nombre,"apellido":apellido,"edad":edad, "direccion":direccion, "acudiente":acudiente, "telefono": {"celular":celular, "fijo":fijo},"estado":"progreso de ingreso", "riesgo":""})
                         print("se ha creado con exito!!")
                         guardarArchivo(miArchivo)
                         menucoordinador()
@@ -150,12 +159,58 @@ while bool==True:
                                 miArchivo[0]["ingreso"].pop(i)
                         guardarArchivo(miArchivo)
                         menucoordinador()
+                    if opc==4:
+                        miArchivo=abrirArchivo()
+                        print("")
+                        print(":::::::::: CREAR RUTAS ACADEMICAS CON LOS MODULOS ::::::::::::::")
+                        nuevo=input("ingresa el nombre de la nueva ruta\n")
+                        nuevonombre=input("ingresa el nombre del nuevo grupo\n")
+                        miArchivo[0]["grupos"].append({"ruta":nuevo, "nombres":nuevonombre, "grupo":[]})
+                        guardarArchivo(miArchivo)
+                        menucoordinador()
+                        
+                    if opc==7:
+                        miArchivo=abrirArchivo()
+                        print(":::::::notas de modulos:::::::")
+                        nomru=input("a que ruta de entrenamiento le asignaras las notas:  ")
+                        for i in miArchivo[0]["grupos"]:
+                            if i["ruta"]==nomru:
+                                print("grupo: ", i["nombres"])
+                                for a in i["grupo"]:
+                                    print("id:  ", a["id"])
+                                    print("nombre:  ", a["nombre"])
+                                    print("apellido:  ", a["apellido"])
+                        pregun=input("ingresa el id del camper al que le quieres asignar notas:  ")
+                        for i in miArchivo[0]["grupos"]:
+                            for z in i["grupo"]:
+                                if z["id"]==pregun:
+                                    nota1=float(input("ingresa la nota de la prueba teorica\n"))
+                        menucoordinador()
+
+                    if opc==8:
+                        print("") 
+                        print("::::::::::::::CAMPERS CON RIESGO ALTO:::::::::::::::") 
+                        print("")
+                        print("::::::Estos campers recibiran un llamado de atencion:::::::::")
+                        for i in miArchivo[0]["grupos"]:
+                            for b in i["grupo"]:
+                        
+                                if b["riesgo"]=="alto":
+                                    print(" ")
+                                    print("==================================================")
+                                    print("id: ",b["id"])
+                                    print("nombre: ", b["nombre"])
+                                    print("apellido: ", b["apellido"])
+                                    print("riesgo: ", b["riesgo"])
+                                    print("===================================================")
+                                    print("")
+                        menucoordinador()
                     
                     if opc==9:
                         ver=False
                         menu()
                 except ValueError:
-                    print("solo se pueden ingresar numeros")
+                    print("INGRESA UNA OPCIÓN VALIDA")
         elif opc==3:
             print("MODULO DE REPORTES")
             print("")
@@ -187,7 +242,21 @@ while bool==True:
                                             print("riesgo: ", z["riesgo"])
                                             print("=========================================================")
                                             print("")
-                        menureportes()                    
+                        menureportes() 
+                    if opc==2:
+                        print("")    
+                        print("=========CAMPERS QUE APROBARON EL EXAMEN PRINCIPAL =============")   
+                        for i in miArchivo[0]["grupos"]:
+                            for d in i["grupo"]:
+                                if d["estado"]=="aprobado":
+                                    print("=========================================================")
+                                    print("id:  ",d["id"])
+                                    print("nombre:  ",d["nombre"])
+                                    print("apellido:  ",d["apellido"])
+                                    print("estado:  ",d["estado"])
+                                    print("=========================================================")
+                                    print("")
+                        menureportes()
                     if opc==3:
                         print("") 
                         print("::::::::::::::TRAINERS:::::::::::::::") 
@@ -220,6 +289,37 @@ while bool==True:
                                     print("===================================================")
                                     print("")
                         menureportes() 
+                    if opc==5:
+                        print(":::::::: CAMPERS Y TRAINERS CON RUTA DE ENTRENAMIENTO:::::::")
+                        print("")
+                        print(":::::::TRAINERS:::::::::::")
+                        for i in  miArchivo[0]["trainers"]:
+                            if i["ruta"]=="NetCore" or i["ruta"]=="java" or i["ruta"]=="nodeJS":
+                                print(" ")
+                                print("==================================================")
+                                print("id: ",i["id"])
+                                print("nombre: ", i["nombre"])
+                                print("apellido: ", i["apellido"])
+                                print("ruta: ", i["ruta"])
+                                print("===================================================")
+                                print("")
+                        for i in  miArchivo[0]["grupos"]:
+                                
+                            if i["ruta"]=="NetCore" or i["ruta"]=="java" or i["ruta"]=="nodeJS":
+                                print(" ")
+                                print(":::::CAMPERS CON RUTA:::::::")
+                                for a in i["grupo"]:
+                                    print(" ")
+                                    print("ruta: ", i["ruta"])
+                                    print("nombre:  ", i["nombres"])
+                                    print("==================================================")
+                                    print("id: ",a["id"])
+                                    print("nombre: ", a["nombre"])
+                                    print("apellido: ", a["apellido"])
+                                    print("===================================================")
+                                    print("")
+                        menureportes()
+
                     if opc==7:
                         mjb=False
                         menu()
@@ -231,5 +331,3 @@ while bool==True:
             bool=False
     except ValueError:
        print("INGRESA UNA OPCIÓN VALIDA")
-
-    
