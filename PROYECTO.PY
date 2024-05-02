@@ -163,9 +163,78 @@ while bool==True:
                         miArchivo=abrirArchivo()
                         print("")
                         print(":::::::::: CREAR RUTAS ACADEMICAS CON LOS MODULOS ::::::::::::::")
-                        nuevo=input("ingresa el nombre de la nueva ruta\n")
-                        nuevonombre=input("ingresa el nombre del nuevo grupo\n")
-                        miArchivo[0]["grupos"].append({"ruta":nuevo, "nombres":nuevonombre, "grupo":[]})
+                        yo=True
+                        while yo==True:
+                            con1=0
+                            con=0
+                            uno=True
+                            while uno==True:
+                                try:
+                                    nuevo=int(input("que ruta quieres crear\n"
+                                                "1 nodeJS\n"
+                                                "2 java\n"
+                                                "3 NetCore\n"))
+                                    if nuevo==1:
+                                        nuevo1="nodeJS"
+                                        con=1
+                                        uno==False
+                                    if nuevo==2:
+                                        nuevo1="java"
+                                        con=1
+                                        uno==False
+                                    if nuevo==3:
+                                        nuevo1="NetCore"
+                                        con=1
+                                        uno==False
+                                except ValueError:
+                                    print("INGRESA UNA OPCIÓN VALIDA")
+                                
+                            dos=True
+                            while dos==True:
+                                try:
+                                    pregun=int(("que modulo le vas a asignar\n"
+                                                    "1 FUNDAMENTOS DE PROGRAMACIÓN\n"
+                                                    "  (Introducción a la algoritmia, PSeint y Python)\n"
+                                                    "\n"
+                                                    "2 PROGRAMACION WEB\n"
+                                                    "  (HTML, CSS y Booststrap)\n"
+                                                    "\n"
+                                                    "3 PROGRAMACIÓN FORMAL\n"
+                                                    "  (Java, JavaScript, C#)"
+                                                    "\n"
+                                                    "4 BASES DE DATOS\n"
+                                                    "  (Mysql, MongoDB y PostGresql)"
+                                                    "\n"
+                                                    "5 BACKEND\n"
+                                                    "  (NetCore, Spring Boot, NodeJS y Expres)"
+                                                    "\n"))
+                                    if pregun==1:
+                                        pregun1="1 FUNDAMENTOS DE PROGRAMACIÓN  (Introducción a la algoritmia, PSeint y Python)"
+                                        con1=1
+                                        dos==False
+                                    if pregun==2:
+                                        pregun1="2 PROGRAMACION WEB  (HTML, CSS y Booststrap)"
+                                        con1=1
+                                        dos==False
+                                    if pregun==3:
+                                        pregun1="3 PROGRAMACIÓN FORMAL  (Java, JavaScript, C#)"
+                                        con1=1
+                                        dos==False
+                                    if pregun==4:
+                                        pregun1="4 BASES DE DATOS  (Mysql, MongoDB y PostGresql)"
+                                        con1=1
+                                        dos==False
+                                    if pregun==5:
+                                        pregun1="5 BACKEND  (NetCore, Spring Boot, NodeJS y Expres)"
+                                        con1=1
+                                        dos==False
+                                except ValueError:
+                                    print("INGRESA UNA OPCIÓN VALIDA")
+
+                            if con==1 and con1==1:
+                                nuevonombre=input("ingresa el nombre del nuevo grupo\n")
+                                miArchivo[0]["grupos"].append({"ruta":nuevo1, "modulos":pregun1, "nombres":nuevonombre, "grupo":[]})
+                                yo=False
                         guardarArchivo(miArchivo)
                         menucoordinador()
                         
@@ -331,3 +400,6 @@ while bool==True:
             bool=False
     except ValueError:
        print("INGRESA UNA OPCIÓN VALIDA")
+
+#desarrollado por Caicedo Bermon Luis Miguel c.c: 1090381345
+#desarrollado por Botello Garcia Yurley t.i: 1066085539
