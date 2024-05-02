@@ -27,7 +27,8 @@ def menucoordinador():
           "6 modulo de matriculas\n"
           "7 notas de modulos"
           "8 consultar campers con riesgo alto\n"
-          "9 volver al menu principal\n"
+          "9 actualizar datos de campers\n"
+          "10volver al menu principal\n"
           ":::::::::::::::::::::::::\n")
 
 
@@ -53,6 +54,20 @@ def menumodulo():
             "3 programacion formal\n"
             "4 bases de datos\n"
             "5 backend\n")
+def menumodificaciones():
+    print(":::::::::MENÚ MODIFICACIONES:::::::::::\n"
+          "1 modificar id\n"
+          "2 modificar nombre\n"
+          "3 modificar apellido \n"
+          "4 modificar edad \n"
+          "5 modificar direccion\n"
+          "6 modificar acudiente\n"
+          "7 modificar numero de celular\n"
+          "8 modificar numero fijo\n"
+          "9 modificar estado del camper\n"
+          "10 modificar riesgo\n"
+          "11 volver al menu de coordinador\n"
+          ":::::::::::::::::::::::::::::::::::::\n")
      
 
 miArchivo=[]
@@ -162,6 +177,7 @@ while bool==True:
                     if opc==4:
                         miArchivo=abrirArchivo()
                         print("")
+
                         print(":::::::::: CREAR RUTAS ACADEMICAS CON LOS MODULOS ::::::::::::::")
                         yo=True
                         while yo==True:
@@ -274,12 +290,60 @@ while bool==True:
                                     print("===================================================")
                                     print("")
                         menucoordinador()
-                    
                     if opc==9:
+                        raw=True
+                        while raw==True:
+                            print(":::::::::::::ACTUALIZAR DATOS DE CAMPERS:::::::::::::")
+                            for i in miArchivo[0]["grupos"]:
+                             print(i["nombres"])
+                            grum=input("ingrese el nombre del grupo en que desea actualizar datos:  ")
+                            for i in miArchivo[0]["grupos"]:
+                                    if i["nombres"]==grum:
+                                        for a in i["grupo"]:
+                                            print(" ")
+                                            print("==================================================")
+                                            print("id: ",a["id"])
+                                            print("nombre: ", a["nombre"])
+                                            print("apellido: ", a["apellido"])
+                                            print("edad: ", a["edad"])
+                                            print("direccion: ", a["direccion"])
+                                            print("acudiente: ", a["acudiente"])
+                                            print("telefono: ", a["telefono"])
+                                            print("estado: ", a["estado"])
+                                            print("riesgo: ", a["riesgo"])
+                                            print("===================================================")
+                                            print("")
+                                        ingid=input("ingrese la id del campers a modificar: ")
+                                        
+                                        for i in miArchivo[0]["grupos"]:
+                                            for a in i["grupo"]:
+                                                if a["id"]==ingid:
+                                                    menumodificaciones()
+                                        
+                                        opc=int(input("ingresar una opcion a modificar: "))
+
+                                        if opc==1:
+                                            miArchivo=abrirArchivo()
+                                            print("==== MODIFICAR ID =======")
+                                            nuevoId=input("ingrese el nuevo id del camper: ")
+                                            for i in miArchivo[0]["grupos"]:
+                                                for a in i["grupo"]:
+                                                    miArchivo[0][a]["id"]=nuevoId
+                                                    guardarArchivo(miArchivo)
+                                            
+
+                                            
+
+                        raw=False  
+
+                    
+                    if opc==10:
                         ver=False
                         menu()
                 except ValueError:
                     print("INGRESA UNA OPCIÓN VALIDA")
+                          
+
         elif opc==3:
             print("MODULO DE REPORTES")
             print("")
