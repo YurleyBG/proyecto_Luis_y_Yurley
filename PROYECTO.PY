@@ -27,7 +27,8 @@ def menucoordinador():
           "6 modulo de matriculas\n"
           "7 notas de modulos"
           "8 consultar campers con riesgo alto\n"
-          "9 volver al menu principal\n"
+          "9 actualizar datos de campers\n"
+          "10volver al menu principal\n"
           ":::::::::::::::::::::::::\n")
 
 
@@ -162,6 +163,7 @@ while bool==True:
                     if opc==4:
                         miArchivo=abrirArchivo()
                         print("")
+
                         print(":::::::::: CREAR RUTAS ACADEMICAS CON LOS MODULOS ::::::::::::::")
                         nuevo=input("ingresa el nombre de la nueva ruta\n")
                         nuevonombre=input("ingresa el nombre del nuevo grupo\n")
@@ -206,7 +208,7 @@ while bool==True:
                                     print("")
                         menucoordinador()
                     
-                    if opc==9:
+                    if opc==10:
                         ver=False
                         menu()
                 except ValueError:
