@@ -3,7 +3,13 @@
         "grupos": [
             {
                 "ruta": "nodeJS",
-                "modulos": "BASES DE DATOS  (Mysql, MongoDB y PostGresql)",
+                "modulos": {
+                    "fundamentos de programacion": ["introduccion a la algoritmia", "PSeint", "Python"],
+                    "programacion web": ["HTML", "CSS", "booststrap"],
+                    "programacion formal": "C#",
+                    "bases de datos": ["MongoDB", "Mysql"],
+                    "backend": ["nodeJS", "Spring Boot"]
+                },
                 "nombres": "t1",
                 "grupo": [
                     {
@@ -38,7 +44,13 @@
             },
             {
                 "ruta": "java",
-                "modulos": "PROGRAMACI\u00d3N FORMAL  (Java, JavaScript, C#)",
+                "modulos": {
+                    "fundamentos de programacion": ["introduccion a la algoritmia", "PSeint", "Python"],
+                    "programacion web": ["HTML", "CSS", "booststrap"],
+                    "programacion formal": "java",
+                    "bases de datos": ["PostGresql", "Mysql"],
+                    "backend": ["Spring Boot", "Expres"]
+                },
                 "nombres": "t2",
                 "grupo": [
                     {
@@ -73,7 +85,13 @@
             },
             {
                 "ruta": "NetCore",
-                "modulos": "FUNDAMENTOS DE PROGRAMACI\u00d3N  (Introducci\u00f3n a la algoritmia, PSeint y Python)",
+                "modulos": {
+                    "fundamentos de programacion": ["introduccion a la algoritmia", "PSeint", "Python"],
+                    "programacion web": ["HTML", "CSS", "booststrap"],
+                    "programacion formal": "JavaScript",
+                    "bases de datos": ["PostGresql", "Mysql"],
+                    "backend": ["NetCore", "Expres"]
+                },
                 "nombres": "t3",
                 "grupo": [
                     {

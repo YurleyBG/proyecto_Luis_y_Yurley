@@ -186,28 +186,10 @@ while bool==True:
                         print(":::::::::: CREAR RUTAS ACADEMICAS CON LOS MODULOS ::::::::::::::")
                         yo=True
                         while yo==True:
-                            con1=0
-                            con=0
-                            uno=True
-                            while uno==True:
-                                try:
-                                    nuevo=int(input("que ruta quieres crear\n"
-                                                "1 nodeJS\n"
-                                                "2 java\n"
-                                                "3 NetCore\n"))
-                                    if nuevo==1:
-                                        nuevo1="nodeJS"
-                                        con=1
-                                    if nuevo==2:
-                                        nuevo1="java"
-                                        con=1
-                                    if nuevo==3:
-                                        nuevo1="NetCore"
-                                        con=1
-                                except ValueError:
-                                    print("INGRESA UNA OPCIÓN VALIDA")
-                                if con==1:
-                                    uno=False
+                            ruta=input("ingresa el nombre de la nueva ruta\n")
+                            print("escoje una opcion para programacin formal")
+                            modulo1=int(input("1.Java  2.JavaScript  3.C#)\n"))
+                            
                             dos=True
                             while dos==True:
                                 try:
