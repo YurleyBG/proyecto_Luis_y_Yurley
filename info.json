@@ -4,11 +4,25 @@
             {
                 "ruta": "nodeJS",
                 "modulos": {
-                    "fundamentos de programacion": ["introduccion a la algoritmia", "PSeint", "Python"],
-                    "programacion web": ["HTML", "CSS", "booststrap"],
+                    "fundamentos de programacion": [
+                        "introduccion a la algoritmia",
+                        "PSeint",
+                        "Python"
+                    ],
+                    "programacion web": [
+                        "HTML",
+                        "CSS",
+                        "booststrap"
+                    ],
                     "programacion formal": "C#",
-                    "bases de datos": ["MongoDB", "Mysql"],
-                    "backend": ["nodeJS", "Spring Boot"]
+                    "bases de datos": [
+                        "MongoDB",
+                        "Mysql"
+                    ],
+                    "backend": [
+                        "nodeJS",
+                        "Spring Boot"
+                    ]
                 },
                 "nombres": "t1",
                 "grupo": [
@@ -45,11 +59,25 @@
             {
                 "ruta": "java",
                 "modulos": {
-                    "fundamentos de programacion": ["introduccion a la algoritmia", "PSeint", "Python"],
-                    "programacion web": ["HTML", "CSS", "booststrap"],
+                    "fundamentos de programacion": [
+                        "introduccion a la algoritmia",
+                        "PSeint",
+                        "Python"
+                    ],
+                    "programacion web": [
+                        "HTML",
+                        "CSS",
+                        "booststrap"
+                    ],
                     "programacion formal": "java",
-                    "bases de datos": ["PostGresql", "Mysql"],
-                    "backend": ["Spring Boot", "Expres"]
+                    "bases de datos": [
+                        "PostGresql",
+                        "Mysql"
+                    ],
+                    "backend": [
+                        "Spring Boot",
+                        "Expres"
+                    ]
                 },
                 "nombres": "t2",
                 "grupo": [
@@ -86,11 +114,25 @@
             {
                 "ruta": "NetCore",
                 "modulos": {
-                    "fundamentos de programacion": ["introduccion a la algoritmia", "PSeint", "Python"],
-                    "programacion web": ["HTML", "CSS", "booststrap"],
+                    "fundamentos de programacion": [
+                        "introduccion a la algoritmia",
+                        "PSeint",
+                        "Python"
+                    ],
+                    "programacion web": [
+                        "HTML",
+                        "CSS",
+                        "booststrap"
+                    ],
                     "programacion formal": "JavaScript",
-                    "bases de datos": ["PostGresql", "Mysql"],
-                    "backend": ["NetCore", "Expres"]
+                    "bases de datos": [
+                        "PostGresql",
+                        "Mysql"
+                    ],
+                    "backend": [
+                        "NetCore",
+                        "Expres"
+                    ]
                 },
                 "nombres": "t3",
                 "grupo": [
@@ -123,6 +165,32 @@
                         "riesgo": ""
                     }
                 ]
+            },
+            {
+                "ruta": "fluorent",
+                "modulos": {
+                    "fundamentos de programacion": [
+                        "introduccion a la algoritmia",
+                        "PSeint",
+                        "Python"
+                    ],
+                    "programacion web": [
+                        "HTML",
+                        "CSS",
+                        "booststrap"
+                    ],
+                    "programacion formal": "JavaScrip",
+                    "bases de datos": [
+                        "PostGresql",
+                        "Mysql"
+                    ],
+                    "backend": [
+                        "NodeJS",
+                        "Expres"
+                    ]
+                },
+                "nombres": "t4",
+                "grupo": []
             }
         ],
         "trainers": [
@@ -142,10 +210,32 @@
                 "nombre": "michael",
                 "apellido": " rodriguez",
                 "edad": "27",
-                "ruta": "",
+                "ruta": {
+                    "ruta": "NetCore",
+                    "modulos": {
+                        "fundamentos de programacion": [
+                            "introduccion a la algoritmia",
+                            "PSeint",
+                            "Python"
+                        ],
+                        "programacion web": [
+                            "HTML",
+                            "CSS",
+                            "booststrap"
+                        ],
+                        "programacion formal": "JavaScript",
+                        "bases de datos": [
+                            "PostGresql",
+                            "Mysql"
+                        ],
+                        "backend": [
+                            "NetCore",
+                            "Expres"
+                        ]
+                    }
+                },
                 "grupos": [
-                    "t2",
-                    "t1"
+                    "t3"
                 ]
             },
             {
@@ -157,20 +247,6 @@
                 "grupos": [
                     "t1",
                     "t3"
-                ]
-            },
-            {
-                "id": 4,
-                "nombre": "andres",
-                "apellido": "rubio",
-                "edad": "28",
-                "ruta": {
-                    "ruta": "java",
-                    "modulos": "PROGRAMACI\u00d3N FORMAL  (Java, JavaScript, C#)"
-                },
-                "trainer": "",
-                "grupos": [
-                    "t2"
                 ]
             }
         ],
