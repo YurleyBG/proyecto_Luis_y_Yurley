@@ -217,19 +217,19 @@ while bool==True:
                                                     "  (NetCore, Spring Boot, NodeJS y Expres)\n"
                                                     "\n"))
                                     if pregun==1:
-                                        pregun1="1 FUNDAMENTOS DE PROGRAMACIÓN  (Introducción a la algoritmia, PSeint y Python)"
+                                        pregun1="FUNDAMENTOS DE PROGRAMACIÓN  (Introducción a la algoritmia, PSeint y Python)"
                                         con1=1
                                     if pregun==2:
-                                        pregun1="2 PROGRAMACION WEB  (HTML, CSS y Booststrap)"
+                                        pregun1="PROGRAMACION WEB  (HTML, CSS y Booststrap)"
                                         con1=1
                                     if pregun==3:
-                                        pregun1="3 PROGRAMACIÓN FORMAL  (Java, JavaScript, C#)"
+                                        pregun1="PROGRAMACIÓN FORMAL  (Java, JavaScript, C#)"
                                         con1=1
                                     if pregun==4:
-                                        pregun1="4 BASES DE DATOS  (Mysql, MongoDB y PostGresql)"
+                                        pregun1="BASES DE DATOS  (Mysql, MongoDB y PostGresql)"
                                         con1=1
                                     if pregun==5:
-                                        pregun1="5 BACKEND  (NetCore, Spring Boot, NodeJS y Expres)"
+                                        pregun1="BACKEND  (NetCore, Spring Boot, NodeJS y Expres)"
                                         con1=1
                                 except ValueError:
                                     print("INGRESA UNA OPCIÓN VALIDA")
@@ -246,7 +246,46 @@ while bool==True:
                                     yo=False
                         guardarArchivo(miArchivo)
                         menucoordinador()
-                        
+
+                    if opc==5:
+                        miArchivo=abrirArchivo()
+                        print("estos son los trainers que no tienen ruta")
+                        for i in miArchivo[0]["trainers"]:
+                            if i["ruta"]=="":
+                                print("")
+                                print("--------------------------------")
+                                print("id:  ", i["id"])
+                                print("nombre: ", i["nombre"])
+                                print("apellido", i["apellido"])
+                                print("--------------------------------")
+                                print("")
+                        verdadero=True
+                        while verdadero==True:
+                            try:
+                                pregunta=int(input("ingresa el id del trainer al que le deseas asignar ruta\n"))
+                            except ValueError:
+                                print("INGRESA UNA ID VALIDA")
+                            for i in miArchivo[0]["trainers"]:
+                                if i["id"]==pregunta and i["ruta"]=="":
+                                    print("estas son las rutas disponibles")
+                                    for z in miArchivo[0]["grupos"]:
+                                        print("-------------------------------")
+                                        print("ruta: ", z["ruta"])
+                                        print("modulos: ", z["modulos"])
+                                        print("grupo: ", z["nombres"])
+                                        print("-------------------------------")
+                                        print("")
+                                    nomgru=input("ingresa el nombre del grupo que tiene la ruta que deseas\n")
+                                    for a in miArchivo[0]["grupos"]:
+                                        if a["nombres"]==nomgru:
+                                            i["ruta"]={"ruta":a["ruta"], "modulos":a["modulos"]}
+                                            i["grupos"]=[a["nombres"]]
+                                            print("cambio realizado")
+                                            guardarArchivo(miArchivo)
+                                            pregun=input("quieres asignarle ruta a otro trainer(si)(no)\n")
+                                            if pregun=="no":
+                                                verdadero=False
+                        menucoordinador()
                     if opc==7:
                         miArchivo=abrirArchivo()
                         print(":::::::notas de modulos:::::::")
