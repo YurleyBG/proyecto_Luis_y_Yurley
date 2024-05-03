@@ -437,7 +437,7 @@ while bool==True:
                                                             guardarArchivo(miArchivo)
                                                             print("cambio realizado con exito")  
                                             if opc==11:
-                                                print("...")
+                                                print("... ")
                                                 menucoordinador()
                                                 raw=False
                                                 
