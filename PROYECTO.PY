@@ -47,13 +47,7 @@ def menureportes():
            "5 listar campers y trainers que tienen ruta de entrenamiento\n"
            "6 mostrar cuantos campers perdieron y aprobaron cada uno de los modulos teniendo en cuenta la ruta de entrenamiento y el entrenador encargado\n"
            "7 volver al menu principal")
-def menumodulo():
-     print("==========MENÚ DE MODULOS============\n"
-            "1 fundamentos de programacion\n"
-            "2 programacion web\n"
-            "3 programacion formal\n"
-            "4 bases de datos\n"
-            "5 backend\n")
+
 def menumodificaciones():
     print(":::::::::MENÚ MODIFICACIONES:::::::::::\n"
           "1 modificar id\n"
@@ -193,22 +187,20 @@ while bool==True:
                                     if nuevo==1:
                                         nuevo1="nodeJS"
                                         con=1
-                                        uno==False
                                     if nuevo==2:
                                         nuevo1="java"
                                         con=1
-                                        uno==False
                                     if nuevo==3:
                                         nuevo1="NetCore"
                                         con=1
-                                        uno==False
                                 except ValueError:
                                     print("INGRESA UNA OPCIÓN VALIDA")
-                                
+                                if con==1:
+                                    uno=False
                             dos=True
                             while dos==True:
                                 try:
-                                    pregun=int(("que modulo le vas a asignar\n"
+                                    pregun=int(input("que modulo le vas a asignar\n"
                                                     "1 FUNDAMENTOS DE PROGRAMACIÓN\n"
                                                     "  (Introducción a la algoritmia, PSeint y Python)\n"
                                                     "\n"
@@ -216,41 +208,42 @@ while bool==True:
                                                     "  (HTML, CSS y Booststrap)\n"
                                                     "\n"
                                                     "3 PROGRAMACIÓN FORMAL\n"
-                                                    "  (Java, JavaScript, C#)"
+                                                    "  (Java, JavaScript, C#)\n"
                                                     "\n"
                                                     "4 BASES DE DATOS\n"
-                                                    "  (Mysql, MongoDB y PostGresql)"
+                                                    "  (Mysql, MongoDB y PostGresql)\n"
                                                     "\n"
                                                     "5 BACKEND\n"
-                                                    "  (NetCore, Spring Boot, NodeJS y Expres)"
+                                                    "  (NetCore, Spring Boot, NodeJS y Expres)\n"
                                                     "\n"))
                                     if pregun==1:
                                         pregun1="1 FUNDAMENTOS DE PROGRAMACIÓN  (Introducción a la algoritmia, PSeint y Python)"
                                         con1=1
-                                        dos==False
                                     if pregun==2:
                                         pregun1="2 PROGRAMACION WEB  (HTML, CSS y Booststrap)"
                                         con1=1
-                                        dos==False
                                     if pregun==3:
                                         pregun1="3 PROGRAMACIÓN FORMAL  (Java, JavaScript, C#)"
                                         con1=1
-                                        dos==False
                                     if pregun==4:
                                         pregun1="4 BASES DE DATOS  (Mysql, MongoDB y PostGresql)"
                                         con1=1
-                                        dos==False
                                     if pregun==5:
                                         pregun1="5 BACKEND  (NetCore, Spring Boot, NodeJS y Expres)"
                                         con1=1
-                                        dos==False
                                 except ValueError:
                                     print("INGRESA UNA OPCIÓN VALIDA")
+                                if con1==1:
+                                    dos=False
 
                             if con==1 and con1==1:
                                 nuevonombre=input("ingresa el nombre del nuevo grupo\n")
                                 miArchivo[0]["grupos"].append({"ruta":nuevo1, "modulos":pregun1, "nombres":nuevonombre, "grupo":[]})
-                                yo=False
+                                cambio=input("SE HA CREADO LA RUTA CON EXITO\n"
+                                             "crear otra ruta: (si)\n"
+                                             "volver al menu: (no)\n")
+                                if cambio=="no":
+                                    yo=False
                         guardarArchivo(miArchivo)
                         menucoordinador()
                         
