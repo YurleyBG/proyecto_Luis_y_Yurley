@@ -63,6 +63,15 @@ def menumodificaciones():
           "10 modificar riesgo\n"
           "11 volver al menu de coordinador\n"
           ":::::::::::::::::::::::::::::::::::::\n")
+    
+def notasmodulos():
+    print("------------MODULOS------------")
+    print("1 fundamentos de programacion")
+    print("2 programacion web")
+    print("3 programacion formal")
+    print("4 bases de datos")
+    print("5 backend")
+    print("6 finalizar")
      
 
 miArchivo=[]
@@ -351,20 +360,45 @@ while bool==True:
                             menucoordinador()
                     if opc==7:
                         miArchivo=abrirArchivo()
-                        print(":::::::notas de modulos:::::::")
-                        nomru=input("a que ruta de entrenamiento le asignaras las notas:  ")
-                        for i in miArchivo[0]["grupos"]:
-                            if i["ruta"]==nomru:
-                                print("grupo: ", i["nombres"])
-                                for a in i["grupo"]:
-                                    print("id:  ", a["id"])
-                                    print("nombre:  ", a["nombre"])
-                                    print("apellido:  ", a["apellido"])
-                        pregun=input("ingresa el id del camper al que le quieres asignar notas:  ")
-                        for i in miArchivo[0]["grupos"]:
-                            for z in i["grupo"]:
-                                if z["id"]==pregun:
-                                    nota1=float(input("ingresa la nota de la prueba teorica\n"))
+                        for z in miArchivo[0]["grupos"]:
+                            print("-------------------------------")
+                            print("ruta: ", z["ruta"])
+                            print("MODULOS")
+                            print("fundamentos de programacion: ", z["modulos"]["fundamentos de programacion"])
+                            print("programacion web: ", z["modulos"]["programacion web"])
+                            print("programacion formal: ", z["modulos"]["programacion formal"])
+                            print("bases de datos: ", z["modulos"]["bases de datos"])
+                            print("backend: ", z["modulos"]["backend"])
+                            print("grupo: ", z["nombres"])
+                            print("-------------------------------")
+                            print("")
+
+                        opc7=True
+                        while opc7==True:
+                            modificar=input("escribe el nombre del grupo que tiene la ruta que deseas modificar\n")
+                            for i in miArchivo[0]["grupos"]:
+                                if i["nombres"]==modificar:
+                                    
+                                    for x in i["grupo"]:
+                                        print("")
+                                        print("--------------------------------")
+                                        print("id:  ", x["id"])
+                                        print("mombre:  ", x["nombre"])
+                                        print("apellido:  ", x["apellido"])
+                                        print("--------------------------------")
+                                        print("")
+                                    for x in i["grupo"]:
+                                        idmod=input("ingresa el id del estudiante al que le quieres asignar notas de algun modulo")
+                                        if idmod==x["id"]:
+                                            notasmodulos()
+                                            men=True
+                                            while men==True:
+                                                try:
+                                                    escojer=int(input("escoje de que modulo le asignaras las notas"))
+                                                    
+                                                except ValueError:
+                                                    print("ingresa una opción valida")
+                                            
                         menucoordinador()
 
                     if opc==8:
