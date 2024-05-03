@@ -3,8 +3,8 @@
         "grupos": [
             {
                 "ruta": "nodeJS",
-                "nombres": "t1",
                 "modulos": "BASES DE DATOS  (Mysql, MongoDB y PostGresql)",
+                "nombres": "t1",
                 "grupo": [
                     {
                         "id": "1",
@@ -113,7 +113,7 @@
                 "nombre": "pedro",
                 "apellido": "canizares",
                 "edad": "24",
-                "ruta": "nodeJS",
+                "ruta": "",
                 "grupos": [
                     "t2",
                     "t3"
@@ -124,7 +124,7 @@
                 "nombre": "michael",
                 "apellido": " rodriguez",
                 "edad": "27",
-                "ruta": "java",
+                "ruta": "",
                 "grupos": [
                     "t2",
                     "t1"
@@ -135,7 +135,7 @@
                 "nombre": "orbin",
                 "apellido": "contreras",
                 "edad": "30",
-                "ruta": "NetCore",
+                "ruta": "",
                 "grupos": [
                     "t1",
                     "t3"
@@ -176,6 +176,20 @@
                 "telefono": {
                     "celular": 322342342,
                     "fijo": 5532423
+                },
+                "estado": "cursando",
+                "riesgo": ""
+            },
+            {
+                "id": "234",
+                "nombre": "ZULLY",
+                "apellido": "ortiz",
+                "edad": "18",
+                "direccion": "Diocesano",
+                "acudiente": "Fabiola ",
+                "telefono": {
+                    "celular": 3125648456,
+                    "fijo": 123654
                 },
                 "estado": "progreso de ingreso",
                 "riesgo": ""

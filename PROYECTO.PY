@@ -21,7 +21,7 @@ def menucoordinador():
     print("::::::::::MENÚ::::::::::\n"
           "1 listar estudiantes\n"
           "2 ingresar nuevos campers\n"
-          "3 asignar notas a los campers que estan en progreso de ingreso y asignación de grupo\n"
+          "3 darle notas a los campers que estan en progreso de ingreso para asignarles una ruta\n"
           "4 crear rutas academicas con los modulos\n"
           "5 asignar rutas de entrenamiento a los traniers\n"
           "6 modulo de matriculas\n"
@@ -126,18 +126,25 @@ while bool==True:
 
                     if opc==3:
                         miArchivo=abrirArchivo()
-                        print("estos son los estudiantes que estan en estado de ingreso")
-                        for i in miArchivo[0]["ingreso"]:
-                            if i["estado"]=="progreso de ingreso":
-                                print("=========================================================")
-                                print("id:  ",i["id"])
-                                print("nombre:  ",i["nombre"])
-                                print("apellido:  ",i["apellido"])
-                                print("estado:  ",i["estado"])
-                                print("=========================================================")
-                                print("")
-                        pedir=input("ingresa el id del estudiante al que le quieres asignar notas\n")
-                        
+                        hola=True
+                        while hola==True:
+                            print("estos son los estudiantes que estan en estado de ingreso")
+                            for i in miArchivo[0]["ingreso"]:
+                                if i["estado"]=="progreso de ingreso":
+                                    print("=========================================================")
+                                    print("id:  ",i["id"])
+                                    print("nombre:  ",i["nombre"])
+                                    print("apellido:  ",i["apellido"])
+                                    print("estado:  ",i["estado"])
+                                    print("=========================================================")
+                                    print("")
+                            pedir=input("ingresa el id del estudiante al que le quieres asignar notas\n")
+                            for i in miArchivo[0]["ingreso"]:
+                                if pedir==i["id"]:
+                                    hola=False
+                                else:
+                                    print("ingresa un id existente")
+                                    print("")
                         for i in miArchivo[0]["ingreso"]:
                             if i["id"]==pedir:
                                 archivo=i
@@ -149,22 +156,24 @@ while bool==True:
                                 resul=nota1+nota2
                                 print(resul)
                                 if resul>=60:
-                                    pregunta1=input("esta persona aprobó quieres cambiar su estado a aprobado (si)(no):  ")
+                                    pregunta1=input("esta persona aprobó quieres cambiar su estado a cursando (si)(no):  ")
                                     if pregunta1=="si":
-                                        i["estado"]="aprobado"
-                                        print("estos son los grupos que estan disponibles")
-                                        for i in range(len(miArchivo[0]["grupos"])):
-                                            if len(miArchivo[0]["grupos"][i]["grupo"])<33:
+                                        i["estado"]="cursando"
+                                        print("estas son las rutas que estan disponibles")
+                                        for i in miArchivo[0]["grupos"]:
+                                            if len(i["grupo"])<33:
                                                 print("--------")
-                                                print(miArchivo[0]["grupos"][i]["nombres"])
-                                        pregunta2=input("a que grupo deseas agregarlo")
+                                                print(i["nombres"])
+                                                print(i["ruta"])
+                                                print(i["modulos"])
+                                        pregunta2=input("ingresa el nombre del grupo que tiene la ruta que deseas:\n")
                                         for i in miArchivo[0]["grupos"]:
                                             if pregunta2==i["nombres"]:
                                                 i["grupo"].append(archivo)
                                                 
                                         print("se han aplicado los cambios")
                         for i in range(len(miArchivo[0]["ingreso"])-1,-1,-1):
-                            if miArchivo[0]["ingreso"][i]["estado"]=="aprobado":
+                            if miArchivo[0]["ingreso"][i]["estado"]=="cursando":
                                 miArchivo[0]["ingreso"].pop(i)
                         guardarArchivo(miArchivo)
                         menucoordinador()
@@ -249,43 +258,54 @@ while bool==True:
 
                     if opc==5:
                         miArchivo=abrirArchivo()
-                        print("estos son los trainers que no tienen ruta")
-                        for i in miArchivo[0]["trainers"]:
-                            if i["ruta"]=="":
-                                print("")
-                                print("--------------------------------")
-                                print("id:  ", i["id"])
-                                print("nombre: ", i["nombre"])
-                                print("apellido", i["apellido"])
-                                print("--------------------------------")
-                                print("")
-                        verdadero=True
-                        while verdadero==True:
-                            try:
-                                pregunta=int(input("ingresa el id del trainer al que le deseas asignar ruta\n"))
-                            except ValueError:
-                                print("INGRESA UNA ID VALIDA")
+                        repeat=True
+                        while repeat==True:
+                            c=0
+                            print("estos son los trainers que no tienen ruta")
                             for i in miArchivo[0]["trainers"]:
-                                if i["id"]==pregunta and i["ruta"]=="":
-                                    print("estas son las rutas disponibles")
-                                    for z in miArchivo[0]["grupos"]:
-                                        print("-------------------------------")
-                                        print("ruta: ", z["ruta"])
-                                        print("modulos: ", z["modulos"])
-                                        print("grupo: ", z["nombres"])
-                                        print("-------------------------------")
-                                        print("")
-                                    nomgru=input("ingresa el nombre del grupo que tiene la ruta que deseas\n")
-                                    for a in miArchivo[0]["grupos"]:
-                                        if a["nombres"]==nomgru:
-                                            i["ruta"]={"ruta":a["ruta"], "modulos":a["modulos"]}
-                                            i["grupos"]=[a["nombres"]]
-                                            print("cambio realizado")
-                                            guardarArchivo(miArchivo)
-                                            pregun=input("quieres asignarle ruta a otro trainer(si)(no)\n")
-                                            if pregun=="no":
-                                                verdadero=False
-                        menucoordinador()
+                                if i["ruta"]=="":
+                                    print("")
+                                    print("--------------------------------")
+                                    print("id:  ", i["id"])
+                                    print("nombre: ", i["nombre"])
+                                    print("apellido", i["apellido"])
+                                    print("--------------------------------")
+                                    print("")
+                                    c=1
+                            if c<1:
+                                print("\n"
+                                      "no hay trainers sin ruta\n"
+                                      "")
+                                repeat=False
+                            else:
+                                verdadero=True
+                                while verdadero==True:
+                                    try:
+                                        pregunta=int(input("ingresa el id del trainer al que le deseas asignar ruta\n"))
+                                    except ValueError:
+                                        print("INGRESA UNA ID VALIDA")
+                                    for i in miArchivo[0]["trainers"]:
+                                        if i["id"]==pregunta and i["ruta"]=="":
+                                            print("estas son las rutas disponibles")
+                                            for z in miArchivo[0]["grupos"]:
+                                                print("-------------------------------")
+                                                print("ruta: ", z["ruta"])
+                                                print("modulos: ", z["modulos"])
+                                                print("grupo: ", z["nombres"])
+                                                print("-------------------------------")
+                                                print("")
+                                            nomgru=input("ingresa el nombre del grupo que tiene la ruta que deseas\n")
+                                            for a in miArchivo[0]["grupos"]:
+                                                if a["nombres"]==nomgru:
+                                                    i["ruta"]={"ruta":a["ruta"], "modulos":a["modulos"]}
+                                                    i["grupos"]=[a["nombres"]]
+                                                    print("cambio realizado")
+                                                    guardarArchivo(miArchivo)
+                                                    pregun=input("quieres asignarle ruta a otro trainer(si)(no)\n")
+                                                    if pregun=="no":
+                                                        verdadero=False
+                                                        repeat=False
+                            menucoordinador()
                     if opc==7:
                         miArchivo=abrirArchivo()
                         print(":::::::notas de modulos:::::::")
@@ -573,13 +593,15 @@ while bool==True:
                         print("")
                         print(":::::::TRAINERS:::::::::::")
                         for i in  miArchivo[0]["trainers"]:
-                            if i["ruta"]=="NetCore" or i["ruta"]=="java" or i["ruta"]=="nodeJS":
+                            if i["ruta"]!="":
+                                
                                 print(" ")
                                 print("==================================================")
                                 print("id: ",i["id"])
                                 print("nombre: ", i["nombre"])
                                 print("apellido: ", i["apellido"])
-                                print("ruta: ", i["ruta"])
+                                print("ruta: ", i["ruta"]["ruta"])
+                                print("modulos", i["ruta"]["modulos"])
                                 print("===================================================")
                                 print("")
                         for i in  miArchivo[0]["grupos"]:
@@ -590,6 +612,7 @@ while bool==True:
                                 for a in i["grupo"]:
                                     print(" ")
                                     print("ruta: ", i["ruta"])
+                                    print("modulos: ", i["modulos"])
                                     print("nombre:  ", i["nombres"])
                                     print("==================================================")
                                     print("id: ",a["id"])
