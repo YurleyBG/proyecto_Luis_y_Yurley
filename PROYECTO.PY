@@ -326,146 +326,163 @@ while bool==True:
                         miArchivo=abrirArchivo()
                         raw=True
                         while raw==True:
-                            print(":::::::::::::ACTUALIZAR DATOS DE CAMPERS:::::::::::::")
-                            for i in miArchivo[0]["grupos"]:
-                             print(i["nombres"])
-                            grum=input("ingrese el nombre del grupo en que desea actualizar datos:  ")
-                            for i in miArchivo[0]["grupos"]:
-                                    if i["nombres"]==grum:
-                                        for a in i["grupo"]:
-                                            print(" ")
-                                            print("==================================================")
-                                            print("id: ",a["id"])
-                                            print("nombre: ", a["nombre"])
-                                            print("apellido: ", a["apellido"])
-                                            print("edad: ", a["edad"])
-                                            print("direccion: ", a["direccion"])
-                                            print("acudiente: ", a["acudiente"])
-                                            print("telefono: ", a["telefono"])
-                                            print("estado: ", a["estado"])
-                                            print("riesgo: ", a["riesgo"])
-                                            print("===================================================")
-                                            print("")
+                            
+                                print(":::::::::::::ACTUALIZAR DATOS DE CAMPERS:::::::::::::")
+                                for i in miArchivo[0]["grupos"]:
+                                    print(i["nombres"])
+                                grum=input("ingrese el nombre del grupo en que desea actualizar datos:  ")
+                                for i in miArchivo[0]["grupos"]:
+                                        if i["nombres"]==grum:
+                                            for a in i["grupo"]:
+                                                print(" ")
+                                                print("==================================================")
+                                                print("id: ",a["id"])
+                                                print("nombre: ", a["nombre"])
+                                                print("apellido: ", a["apellido"])
+                                                print("edad: ", a["edad"])
+                                                print("direccion: ", a["direccion"])
+                                                print("acudiente: ", a["acudiente"])
+                                                print("telefono: ", a["telefono"])
+                                                print("estado: ", a["estado"])
+                                                print("riesgo: ", a["riesgo"])
+                                                print("===================================================")
+                                                print("")
 
                                             menumodificaciones()
-                                        
-                                            opc=int(input("ingresar una opcion a modificar: "))
+                            
+                                           
+                                           
+                                            opc=int(input("ingrese su opcion para modificar: "))
+
                                             if opc==1:
                                                 miArchivo=abrirArchivo()
                                                 print("==== MODIFICAR ID =======")
                                                 ingid=input("ingrese la id del campers a modificar: ")
-                                            for i in miArchivo[0]["grupos"]:
-                                                for a in i["grupo"]:
-                                                    if a["id"]==ingid:
-                                                        nuevoId=input("ingrese el nuevo id del camper: ")
-                                                        a["id"]=nuevoId
-                                                        guardarArchivo(miArchivo)
-                                                        print("cambio realizado con exito")   
+                                                for i in miArchivo[0]["grupos"]:
+                                                    for a in i["grupo"]:
+                                                        if a["id"]==ingid:
+                                                            nuevoId=input("ingrese el nuevo id del camper: ")
+                                                            a["id"]=nuevoId
+                                                            guardarArchivo(miArchivo)
+                                                            print("cambio realizado con exito") 
+                                                 
+
                                             if opc==2:
                                                 miArchivo=abrirArchivo()
                                                 print("======= MODIFICAR NOMBRE ========")
                                                 ingid=input("ingrese la id del campers a modificar: ")
-                                            for i in miArchivo[0]["grupos"]:
-                                                for a in i["grupo"]:
-                                                    if a["id"]==ingid:
-                                                        nuevoNombre=input("ingrese el nuevo id del camper: ")
-                                                        a["nombre"]=nuevoNombre
-                                                        guardarArchivo(miArchivo)
-                                                        print("cambio realizado con exito")  
+                                                for i in miArchivo[0]["grupos"]:
+                                                    for a in i["grupo"]:
+                                                        if a["id"]==ingid:
+                                                            nuevoNombre=input("ingrese el nuevo nombre del camper: ")
+                                                            a["nombre"]=nuevoNombre
+                                                            guardarArchivo(miArchivo)
+                                                            print("cambio realizado con exito") 
+                                       
                                             if opc==3:
                                                 miArchivo=abrirArchivo()
                                                 print("======= MODIFICAR APELLIDO ========")
                                                 ingid=input("ingrese la id del campers a modificar: ")
-                                            for i in miArchivo[0]["grupos"]:
-                                                for a in i["grupo"]:
-                                                    if a["id"]==ingid:
-                                                        nuevoApellido=input("ingrese el apellido del camper: ")
-                                                        a["apellido"]=nuevoApellido
-                                                        guardarArchivo(miArchivo)
-                                                        print("cambio realizado con exito")    
+                                                for i in miArchivo[0]["grupos"]:
+                                                    for a in i["grupo"]:
+                                                        if a["id"]==ingid:
+                                                            nuevoApellido=input("ingrese el apellido del camper: ")
+                                                            a["apellido"]=nuevoApellido
+                                                            guardarArchivo(miArchivo)
+                                                            print("cambio realizado con exito")   
+                                        
                                             if opc==4:
                                                 miArchivo=abrirArchivo()
                                                 print("======= MODIFICAR EDAD ========")
                                                 ingid=input("ingrese la id del campers a modificar: ")
-                                            for i in miArchivo[0]["grupos"]:
-                                                for a in i["grupo"]:
-                                                    if a["id"]==ingid:
-                                                        nuevoEdad=input("ingrese la edad del camper: ")
-                                                        a["edad"]=nuevoEdad
-                                                        guardarArchivo(miArchivo)
-                                                        print("cambio realizado con exito")   
+                                                for i in miArchivo[0]["grupos"]:
+                                                    for a in i["grupo"]:
+                                                        if a["id"]==ingid:
+                                                            nuevoEdad=input("ingrese la edad del camper: ")
+                                                            a["edad"]=nuevoEdad
+                                                            guardarArchivo(miArchivo)
+                                                            print("cambio realizado con exito")   
+                                        
                                             if opc==5:
                                                 miArchivo=abrirArchivo()
                                                 print("======= MODIFICAR DIRECCION========")
                                                 ingid=input("ingrese la id del campers a modificar: ")
-                                            for i in miArchivo[0]["grupos"]:
-                                                for a in i["grupo"]:
-                                                    if a["id"]==ingid:
-                                                        nuevaDireccion=input("ingrese la direccion del camper: ")
-                                                        a["direccion"]=nuevaDireccion
-                                                        guardarArchivo(miArchivo)
-                                                        print("cambio realizado con exito")   
+                                                for i in miArchivo[0]["grupos"]:
+                                                    for a in i["grupo"]:
+                                                        if a["id"]==ingid:
+                                                            nuevaDireccion=input("ingrese la direccion del camper: ")
+                                                            a["direccion"]=nuevaDireccion
+                                                            guardarArchivo(miArchivo)
+                                                            print("cambio realizado con exito") 
+                                                     
                                             if opc==6:
                                                 miArchivo=abrirArchivo()
                                                 print("======= MODIFICAR ACUDIENTE ========")
                                                 ingid=input("ingrese la id del campers a modificar: ")
-                                            for i in miArchivo[0]["grupos"]:
-                                                for a in i["grupo"]:
-                                                    if a["id"]==ingid:
-                                                        nuevoAcudiente=input("ingrese el acudiente del camper: ")
-                                                        a["acudiente"]=nuevoAcudiente
-                                                        guardarArchivo(miArchivo)
-                                                        print("cambio realizado con exito")   
+                                                for i in miArchivo[0]["grupos"]:
+                                                    for a in i["grupo"]:
+                                                        if a["id"]==ingid:
+                                                            nuevoAcudiente=input("ingrese el acudiente del camper: ")
+                                                            a["acudiente"]=nuevoAcudiente
+                                                            guardarArchivo(miArchivo)
+                                                            print("cambio realizado con exito") 
+                                        
                                             if opc==7:
                                                 miArchivo=abrirArchivo()
                                                 print("======= MODIFICAR NUMERO DE TELEFONO========")
                                                 ingid=input("ingrese la id del campers a modificar: ")
-                                            for i in miArchivo[0]["grupos"]:
-                                                for a in i["grupo"]:
-                                                    if a["id"]==ingid:
-                                                        nuevoNumeroCelular=input("ingrese el numero del celular del camper: ")
-                                                        a["celular"]=nuevoNumeroCelular
-                                                        guardarArchivo(miArchivo)
-                                                        print("cambio realizado con exito")   
+                                                for i in miArchivo[0]["grupos"]:
+                                                    for a in i["grupo"]:
+                                                        if a["id"]==ingid:
+
+                                                            nuevoNumeroCelular=int(input("ingrese el numero del celular del camper: "))
+                                                            a["telefono"]["celular"]=nuevoNumeroCelular
+                                                            guardarArchivo(miArchivo)
+                                                            print("cambio realizado con exito")
+                                        
                                             if opc==8:
                                                 miArchivo=abrirArchivo()
                                                 print("======= MODIFICAR NUMERO FIJO========")
                                                 ingid=input("ingrese la id del campers a modificar: ")
-                                            for i in miArchivo[0]["grupos"]:
-                                                for a in i["grupo"]:
-                                                    if a["id"]==ingid:
-                                                        nuevoNumeroFijo=input("ingrese el numero fijo del camper: ")
-                                                        a["fijo"]=nuevoNumeroFijo
-                                                        guardarArchivo(miArchivo)
-                                                        print("cambio realizado con exito")   
+                                                for i in miArchivo[0]["grupos"]:
+                                                    for a in i["grupo"]:
+                                                        if a["id"]==ingid:
+                                                            nuevoNumeroFijo=int(input("ingrese el numero fijo del camper: "))
+                                                            a["telefono"]["fijo"]=nuevoNumeroFijo
+                                                            guardarArchivo(miArchivo)
+                                                            print("cambio realizado con exito")  
+                                        
                                             if opc==9:
                                                 miArchivo=abrirArchivo()
                                                 print("======= MODIFICAR ESTADO ========")
                                                 ingid=input("ingrese la id del campers a modificar: ")
-                                            for i in miArchivo[0]["grupos"]:
-                                                for a in i["grupo"]:
-                                                    if a["id"]==ingid:
-                                                        nuevoEstado=input("ingrese el estado del camper: ")
-                                                        a["estado"]=nuevoEstado
-                                                        guardarArchivo(miArchivo)
-                                                        print("cambio realizado con exito")   
+                                                for i in miArchivo[0]["grupos"]:
+                                                    for a in i["grupo"]:
+                                                        if a["id"]==ingid:
+                                                            nuevoEstado=input("ingrese el estado del camper: ")
+                                                            a["estado"]=nuevoEstado
+                                                            guardarArchivo(miArchivo)
+                                                            print("cambio realizado con exito")  
+                                        
                                             if opc==10:
                                                 miArchivo=abrirArchivo()
                                                 print("======= MODIFICAR RIESGO ========")
                                                 ingid=input("ingrese la id del campers a modificar: ")
-                                            for i in miArchivo[0]["grupos"]:
-                                                for a in i["grupo"]:
-                                                    if a["id"]==ingid:
-                                                        nuevoRiesgo=input("ingrese el riesgo del camper: ")
-                                                        a["riesgo"]=nuevoRiesgo
-                                                        guardarArchivo(miArchivo)
-                                                        print("cambio realizado con exito")   
+                                                for i in miArchivo[0]["grupos"]:
+                                                    for a in i["grupo"]:
+                                                        if a["id"]==ingid:
+                                                            nuevoRiesgo=input("ingrese el riesgo del camper: ")
+                                                            a["riesgo"]=nuevoRiesgo
+                                                            guardarArchivo(miArchivo)
+                                                            print("cambio realizado con exito")  
                                             if opc==11:
-                                                 print("")
-                                                 menucoordinador()
-                        raw=False  
-
-                    
+                                                print("... ")
+                                                menucoordinador()
+                                                raw=False
+                                                
+                        raw=False
+                                              
+                       
                     if opc==10:
                         ver=False
                         menu()
