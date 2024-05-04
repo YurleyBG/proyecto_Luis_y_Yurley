@@ -788,6 +788,183 @@ while bool==True:
                                     print("")
                         menureportes()
 
+                    if opc==6:
+                        miArchivo=abrirArchivo()
+                        opcion6=True
+                        while opcion6==True:
+                            for i in miArchivo[0]["grupos"]:
+                                print("")
+                                print("--------------------------------")
+                                print("ruta:  ", i["ruta"])
+                                print("")
+                            pregunt=input("que ruta quieres ver")
+                            for i in miArchivo[0]["grupos"]:
+                                if pregunt==i["ruta"]:
+                                    print("--------------------------------")
+                                    print("ruta:  ", i["ruta"])
+                                    print("")
+                                    for z in miArchivo[0]["trainers"]:
+                                        if z["ruta"]==i["ruta"]:
+                                            print("trainer encargado")
+                                            print("")
+                                            print("id: ", z["id"])
+                                            print("nomdre: ", z["nombre"])
+                                            print("apellido: ", z["apellido"])
+                                            print("")
+                                    notasmodulos()
+                                    diez=True
+                                    while diez==True:
+                                        try:
+                                            opc6=int(input("que modulo quieres ver\n"))
+                                            if opc6==1:
+                                                print("campers que aprobaron el modulo")
+                                                print("fundamentos de programacion:  ", i["modulos"]["fundamentos de programacion"])
+                                                print("")
+                                                for r in i["grupo"]:
+                                                    if "modulo1" in r["modulos"]:
+                                                        if r["modulos"]["modulo1"]=="aprobado":
+                                                            print("------------------------")
+                                                            print("id: ", r["id"])
+                                                            print("nomdre: ", r["nombre"])
+                                                            print("apellido: ", r["apellido"])
+                                                            print("resultado del modulo: ", r["modulos"]["modulo1"])
+                                                            print("------------------------")
+                                                            print("")
+                                                print("campers que no aprobaron el modulo")
+                                                print("fundamentos de programacion:  ", i["modulos"]["fundamentos de programacion"])
+                                                print("")
+                                                for r in i["grupo"]:
+                                                    if "modulo1" in r["modulos"]:
+                                                        if r["modulos"]["modulo1"]=="desaprovado":
+                                                            print("------------------------")
+                                                            print("id: ", r["id"])
+                                                            print("nomdre: ", r["nombre"])
+                                                            print("apellido: ", r["apellido"])
+                                                            print("resultado del modulo: ", r["modulos"]["modulo1"])
+                                                            print("------------------------")
+                                                            print("")
+                                                notasmodulos()
+                                            if opc6==2:
+                                                print("campers que aprobaron el modulo")
+                                                print("programacion web: ", i["modulos"]["programacion web"])
+                                                print("")
+                                                for r in i["grupo"]:
+                                                    if "modulo2" in r["modulos"]:
+                                                        if r["modulos"]["modulo2"]=="aprobado":
+                                                            print("------------------------")
+                                                            print("id: ", r["id"])
+                                                            print("nomdre: ", r["nombre"])
+                                                            print("apellido: ", r["apellido"])
+                                                            print("resultado del modulo: ", r["modulos"]["modulo2"])
+                                                            print("------------------------")
+                                                            print("")
+                                                print("campers que no aprobaron el modulo")
+                                                print("programacion web: ", i["modulos"]["programacion web"])
+                                                print("")
+                                                for r in i["grupo"]:
+                                                    if "modulo2" in r["modulos"]:
+                                                        if r["modulos"]["modulo2"]=="desaprovado":
+                                                            print("------------------------")
+                                                            print("id: ", r["id"])
+                                                            print("nomdre: ", r["nombre"])
+                                                            print("apellido: ", r["apellido"])
+                                                            print("resultado del modulo: ", r["modulos"]["modulo2"])
+                                                            print("------------------------")
+                                                            print("")
+                                                notasmodulos()
+                                            if opc6==3:
+                                                print("campers que aprobaron el modulo")
+                                                print("programacion formal:  ", i["modulos"]["programacion formal"])
+                                                print("")
+                                                for r in i["grupo"]:
+                                                    if "modulo3" in r["modulos"]:
+                                                        if r["modulos"]["modulo3"]=="aprobado":
+                                                            print("------------------------")
+                                                            print("id: ", r["id"])
+                                                            print("nomdre: ", r["nombre"])
+                                                            print("apellido: ", r["apellido"])
+                                                            print("resultado del modulo: ", r["modulos"]["modulo3"])
+                                                            print("------------------------")
+                                                            print("")
+                                                print("campers que no aprobaron el modulo")
+                                                print("programacion formal:  ", i["modulos"]["programacion formal"])
+                                                print("")
+                                                for r in i["grupo"]:
+                                                    if "modulo3" in r["modulos"]:
+                                                        if r["modulos"]["modulo3"]=="desaprovado":
+                                                            print("------------------------")
+                                                            print("id: ", r["id"])
+                                                            print("nomdre: ", r["nombre"])
+                                                            print("apellido: ", r["apellido"])
+                                                            print("resultado del modulo: ", r["modulos"]["modulo3"])
+                                                            print("------------------------")
+                                                            print("")
+                                                notasmodulos()
+                                            if opc6==4:
+                                                print("campers que aprobaron el modulo")
+                                                print("bases de datos:  ", i["modulos"]["bases de datos"])
+                                                print("")
+                                                for r in i["grupo"]:
+                                                    if "modulo4" in r["modulos"]:
+                                                        if r["modulos"]["modulo4"]=="aprobado":
+                                                            print("------------------------")
+                                                            print("id: ", r["id"])
+                                                            print("nomdre: ", r["nombre"])
+                                                            print("apellido: ", r["apellido"])
+                                                            print("resultado del modulo: ", r["modulos"]["modulo4"])
+                                                            print("------------------------")
+                                                            print("")
+                                                print("campers que no aprobaron el modulo")
+                                                print("bases de datos:  ", i["modulos"]["bases de datos"])
+                                                print("")
+                                                for r in i["grupo"]:
+                                                    if "modulo4" in r["modulos"]:
+                                                        if r["modulos"]["modulo4"]=="desaprovado":
+                                                            print("------------------------")
+                                                            print("id: ", r["id"])
+                                                            print("nomdre: ", r["nombre"])
+                                                            print("apellido: ", r["apellido"])
+                                                            print("resultado del modulo: ", r["modulos"]["modulo4"])
+                                                            print("------------------------")
+                                                            print("")
+                                                notasmodulos()
+                                            if opc6==5:
+                                                print("campers que aprobaron el modulo")
+                                                print("backend:  ", i["modulos"]["backend"])
+                                                print("")
+                                                for r in i["grupo"]:
+                                                    if "modulo5" in r["modulos"]:
+                                                        if r["modulos"]["modulo5"]=="aprobado":
+                                                            print("------------------------")
+                                                            print("id: ", r["id"])
+                                                            print("nomdre: ", r["nombre"])
+                                                            print("apellido: ", r["apellido"])
+                                                            print("resultado del modulo: ", r["modulos"]["modulo5"])
+                                                            print("------------------------")
+                                                            print("")
+                                                print("campers que no aprobaron el modulo")
+                                                print("backend:  ", i["modulos"]["backend"])
+                                                print("")
+                                                for r in i["grupo"]:
+                                                    if "modulo5" in r["modulos"]:
+                                                        if r["modulos"]["modulo5"]=="desaprovado":
+                                                            print("------------------------")
+                                                            print("id: ", r["id"])
+                                                            print("nomdre: ", r["nombre"])
+                                                            print("apellido: ", r["apellido"])
+                                                            print("resultado del modulo: ", r["modulos"]["modulo5"])
+                                                            print("------------------------")
+                                                            print("")
+                                                notasmodulos()
+                                            if opc6==6:
+                                                diez=False
+                                        except ValueError:
+                                            print("ingresa una opcion valida")
+                            lola=input("quieres volver al menu de reportes (si)(no)\n")
+                            if lola=="si":
+                                opcion6=False
+                        menureportes()
+
                     if opc==7:
                         mjb=False
                         menu()

@@ -38,7 +38,10 @@
                             "fijo": 556782
                         },
                         "estado": "cursando",
-                        "riesgo": "bajo"
+                        "riesgo": "bajo",
+                        "modulos": {
+                            
+                        }
                     },
                     {
                         "id": "2",
@@ -52,7 +55,10 @@
                             "fijo": 889063
                         },
                         "estado": "cursando",
-                        "riesgo": "bajo"
+                        "riesgo": "bajo",
+                        "modulos": {
+                            
+                        }
                     }
                 ]
             },
@@ -93,7 +99,10 @@
                             "fijo": 556778
                         },
                         "estado": "cursando",
-                        "riesgo": "bajo"
+                        "riesgo": "bajo",
+                        "modulos": {
+                            
+                        }
                     },
                     {
                         "id": "4",
@@ -107,7 +116,10 @@
                             "fijo": 590876
                         },
                         "estado": "cursando",
-                        "riesgo": "medio"
+                        "riesgo": "medio",
+                        "modulos": {
+                            
+                        }
                     }
                 ]
             },
@@ -148,7 +160,10 @@
                             "fijo": 554321
                         },
                         "estado": "cursando",
-                        "riesgo": "alto"
+                        "riesgo": "alto",
+                        "modulos": {
+
+                        }
                     },
                     {
                         "id": "6",
