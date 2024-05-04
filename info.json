@@ -162,7 +162,12 @@
                             "fijo": 567843
                         },
                         "estado": "cursando",
-                        "riesgo": ""
+                        "riesgo": "",
+                        "modulos": {
+                            "modulo5": "aprobado",
+                            "modulo3": "aprobado",
+                            "modulo1": "desaprobado"
+                        }
                     }
                 ]
             },

@@ -387,17 +387,70 @@ while bool==True:
                                         print("apellido:  ", x["apellido"])
                                         print("--------------------------------")
                                         print("")
+                                    
+                                    idmod=input("ingresa el id del estudiante al que le quieres asignar notas de algun modulo\n")
                                     for x in i["grupo"]:
-                                        idmod=input("ingresa el id del estudiante al que le quieres asignar notas de algun modulo")
                                         if idmod==x["id"]:
                                             notasmodulos()
                                             men=True
                                             while men==True:
                                                 try:
-                                                    escojer=int(input("escoje de que modulo le asignaras las notas"))
+                                                    escojer=int(input("escoje de que modulo le asignaras las notas: "))
+                                                    if escojer>=1 and escojer<=5:
+                                                        teorica=float(input("nota de la prueba teorica: "))
+                                                        teorica=teorica*0.3
+                                                        practica=float(input("nota de la prueba practica: "))
+                                                        practica=practica*0.6
+                                                        print("ingresa las notas de los quizes/trabajos")
+                                                        lis=input()
+                                                        lista=[float(y) for y in lis.split()]
+                                                        a=0
+                                                    for z in lista:
+                                                        a=a+z
+                                                    cantidadNotas=len(lista)
+                                                    a=a/cantidadNotas
+                                                    a=a*0.1
+                                                    total=teorica+practica+a
+                                                    if escojer==1:
+                                                        if total<60:
+                                                            x["modulos"]["modulo1"]="desaprobado"
+                                                        if total>=60:
+                                                            x["modulos"]["modulo1"]="aprobado"
+                                                        notasmodulos()
+                                                    if escojer==2:
+                                                        if total<60:
+                                                            x["modulos"]["modulo2"]="desaprobado"
+                                                        if total>=60:
+                                                            x["modulos"]["modulo2"]="aprobado"
+                                                        notasmodulos()
+                                                    if escojer==3:
+                                                        if total<60:
+                                                            x["modulos"]["modulo3"]="desaprobado"
+                                                        if total>=60:
+                                                            x["modulos"]["modulo3"]="aprobado"
+                                                        notasmodulos()
+                                                    if escojer==4:
+                                                        if total<60:
+                                                            x["modulos"]["modulo4"]="desaprobado"
+                                                        if total>=60:
+                                                            x["modulos"]["modulo4"]="aprobado"
+                                                        notasmodulos()
+                                                    if escojer==5:
+                                                        if total<60:
+                                                            x["modulos"]["modulo5"]="desaprobado"
+                                                        if total>=60:
+                                                            x["modulos"]["modulo5"]="aprobado"
+                                                        notasmodulos()
                                                     
+                                                    if escojer==6:
+                                                        men=False
                                                 except ValueError:
                                                     print("ingresa una opción valida")
+                                            print("cambio realizado")
+                                            guardarArchivo(miArchivo)
+                                            repit=input("quieres quieres repetir el proceso con otro camper (si)(no)\n")
+                                            if repit=="no":
+                                                opc7=False
                                             
                         menucoordinador()
 
