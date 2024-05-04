@@ -72,6 +72,14 @@ def notasmodulos():
     print("4 bases de datos")
     print("5 backend")
     print("6 finalizar")
+
+def modifmatriculas():
+    print("-----------DATOS-----------")
+    print("1 Fecha de inicio")
+    print("2 Fecha de finalizacion")
+    print("3 salon de entrenamiento")
+    print("4 volver al menu de coordinador")
+
      
 
 miArchivo=[]
@@ -358,6 +366,78 @@ while bool==True:
                                                         verdadero=False
                                                         repeat=False
                             menucoordinador()
+                    if opc==6:
+                        miArchivo=abrirArchivo()
+
+                        bonjur=True
+                        while bonjur==True:
+                            try:
+                                print("::::::::::::::: MODULO DE MATRICULA :::::::::::::::")
+                                print("guarda un registro de los campers matriculados en cada area")
+                                for i in miArchivo[0]["grupos"]:
+                                    print(i["nombres"])
+                                opc=input("ingrese el grupo a revisar matricula: ")
+                                print("")
+                                print("::::::::::::::MATRICULA::::::::::::")
+                                print("------------------------------------")
+                                for i in miArchivo[0]["grupos"]:
+                                    if i["nombres"]==opc:
+                                        print("Grupo:",i["nombres"])
+                                for a in miArchivo[0]["trainers"]:
+                                    if a["grupos"]==opc:
+                                        print("Trainer encargado:",a["nombre"])
+                                for b in miArchivo[0]["grupos"]:
+                                    if b["nombres"]==opc:
+                                        print("Ruta de entrenamiento:",b["ruta"])
+                                        print("Fecha de inicio:",b["fecha de inicio"],)
+                                        print("fecha de finalizacion:",b["fecha de finalizacion"])
+                                        print("Salon de entrenamiento:",b["salon"])
+                                        print("------------------------------------------")
+                                for c in miArchivo[0]["grupos"]:
+                                    if c["nombres"]==opc:
+                                        for d in c["grupo"]:
+                                            print("::::::::: CAMPER ::::::::::")
+                                            print("id: ",d["id"])
+                                            print("nombre: ", d["nombre"])
+                                            print("apellido: ", d["apellido"])
+                                            print("edad: ", d["edad"])
+                                            print("direccion: ", d["direccion"])
+                                            print("acudiente: ", d["acudiente"])
+                                            print("telefono: ", d["telefono"])
+                                            print("estado: ", d["estado"])
+                                            print("riesgo: ", d["riesgo"])
+                                            print("-----------------------------")
+                                            print("")
+                                
+                                modif=input("deseas modificar si o no\n")
+                                if modif=="si":
+                                    modifmatriculas()
+                                    try:
+                                        opci=int(input("ingrese una opcion por favor: "))
+                                        if opci==1:
+                                            for i in miArchivo[0]["grupos"]:
+                                                i["fecha de inicio"]=input("ingrese la fecha de inicio: ")
+                                                guardarArchivo(miArchivo)
+                                        if opci==2:
+                                            for i in miArchivo[0]["grupos"]:
+                                                i["fecha de finalizacion"]=input("ingrese la fecha de finalizacion: ")
+                                                guardarArchivo(miArchivo)
+                                        if opci==3:
+                                            for i in miArchivo[0]["grupos"]:
+                                                i["fecha de inicio"]=input("ingrese el area o salon de entrenamiento: ")
+                                                guardarArchivo(miArchivo)
+                                        if opci==4:
+                                            print("")
+                                            bonjur=False
+                                            menucoordinador()
+                                    except ValueError:
+                                        print("ingrese una opcion valida")
+
+                                if modif=="no":
+                                    bonjur=False
+                                    menucoordinador()
+                            except ValueError:
+                                print("ingrese una opcion valida")
                     if opc==7:
                         miArchivo=abrirArchivo()
                         for z in miArchivo[0]["grupos"]:

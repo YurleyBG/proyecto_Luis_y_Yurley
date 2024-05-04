@@ -25,6 +25,9 @@
                     ]
                 },
                 "nombres": "t1",
+                "fecha de inicio":"14-feb-2024",
+                "fecha de finalizacion":"indefinida",
+                "salon":"aula 5",
                 "grupo": [
                     {
                         "id": "1",
@@ -86,6 +89,9 @@
                     ]
                 },
                 "nombres": "t2",
+                "fecha de inicio":"14-feb-2024",
+                "fecha de finalizacion":"indefinida",
+                "salon":"aula 10",
                 "grupo": [
                     {
                         "id": "3",
@@ -147,6 +153,9 @@
                     ]
                 },
                 "nombres": "t3",
+                "fecha de inicio":"14-Mar-2024",
+                "fecha de finalizacion":"indefinida",
+                "salon":"aula 5",
                 "grupo": [
                     {
                         "id": "5",
@@ -220,10 +229,7 @@
                 "apellido": "canizares",
                 "edad": "24",
                 "ruta": "",
-                "grupos": [
-                    "t2",
-                    "t3"
-                ]
+                "grupos": "t1"
             },
             {
                 "id": 2,
@@ -254,9 +260,8 @@
                         ]
                     }
                 },
-                "grupos": [
-                    "t3"
-                ]
+                "grupos": "t3"
+                
             },
             {
                 "id": 3,
@@ -264,10 +269,7 @@
                 "apellido": "contreras",
                 "edad": "30",
                 "ruta": "",
-                "grupos": [
-                    "t1",
-                    "t3"
-                ]
+                "grupos": "t2"
             }
         ],
         "coordinador": [
