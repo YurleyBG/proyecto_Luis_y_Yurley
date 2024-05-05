@@ -519,6 +519,30 @@ while bool==True:
                         menucoordinador()
 
                     if opc==7:
+                        miArchivo=abrirArchivo()
+                        for i in miArchivo[0]["grupos"]:
+                            for z in i["grupo"]:
+                                one=0
+                                if "modulo1" in z["modulos"]:
+                                    if z["modulos"]["modulo1"]=="desaprobado":
+                                        one=one+1
+                                if "modulo2" in z["modulos"]:
+                                    if z["modulos"]["modulo2"]=="desaprobado":
+                                        one=one+1
+                                if "modulo3" in z["modulos"]:
+                                    if z["modulos"]["modulo3"]=="desaprobado":
+                                        one=one+1
+                                if "modulo4" in z["modulos"]:
+                                    if z["modulos"]["modulo4"]=="desaprobado":
+                                        one=one+1
+                                if "modulo5" in z["modulos"]:
+                                    if z["modulos"]["modulo5"]=="desaprobado":
+                                        one=one+1
+                                if one>=3:
+                                    z["riesgo"]="alto"
+                                else:
+                                    z["riesgo"]="bajo"
+                        guardarArchivo(miArchivo)
                         print("") 
                         print("::::::::::::::CAMPERS CON RIESGO ALTO:::::::::::::::") 
                         print("")
@@ -740,10 +764,36 @@ while bool==True:
                             print("===================================================")
                         menureportes()  
                     if opc==4:
+                        miArchivo=abrirArchivo()
+                        for i in miArchivo[0]["grupos"]:
+                            for z in i["grupo"]:
+                                one=0
+                                if "modulo1" in z["modulos"]:
+                                    if z["modulos"]["modulo1"]=="desaprobado":
+                                        one=one+1
+                                if "modulo2" in z["modulos"]:
+                                    if z["modulos"]["modulo2"]=="desaprobado":
+                                        one=one+1
+                                if "modulo3" in z["modulos"]:
+                                    if z["modulos"]["modulo3"]=="desaprobado":
+                                        one=one+1
+                                if "modulo4" in z["modulos"]:
+                                    if z["modulos"]["modulo4"]=="desaprobado":
+                                        one=one+1
+                                if "modulo5" in z["modulos"]:
+                                    if z["modulos"]["modulo5"]=="desaprobado":
+                                        one=one+1
+                                if one>=3:
+                                    z["riesgo"]="alto"
+                                else:
+                                    z["riesgo"]="bajo"
+                        guardarArchivo(miArchivo)
+
+
                         print("") 
                         print("")
                         print("::::::::::::::CAMPERS DE BAJO RENDIMIENTO:::::::::::::::") 
-                        print("Todos aquellos campers que cuenta con un riesgo alto equivale a un rendimiento bajo")
+                        print("Todos aquellos campers que cuentan con un riesgo alto equivale a un rendimiento bajo")
                         for i in miArchivo[0]["grupos"]:
                             for a in i["grupo"]:
                         
