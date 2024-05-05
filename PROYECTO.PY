@@ -21,7 +21,7 @@ def menucoordinador():
     print("::::::::::MENÚ::::::::::\n"
           "1 listar estudiantes\n"
           "2 ingresar nuevos campers\n"
-          "6 modulo de matriculas\n"
+          "3 modulo de matriculas\n"
           "4 crear rutas academicas con los modulos\n"
           "5 asignar rutas de entrenamiento a los traniers\n"
           "6 notas de modulos\n"
@@ -351,7 +351,41 @@ while bool==True:
                                         print("ingresa un id de los que muestran")
                                 except ValueError:
                                     print("ingresa un id valido")
-                                
+                            if cont==1:
+                                listarutas=[]
+                                for a in miArchivo[0]["grupos"]:
+                                    rutacont=0
+                                    for i in miArchivo[0]["trainers"]:
+                                        for z in range(len(i["ruta"])):
+                                            if i["ruta"][z]==a["ruta"]:
+                                                rutacont=1
+                                    if rutacont==0:
+                                        print("ruta: ", a["ruta"])
+                                        listarutas.append(a["ruta"])
+                                if len(listarutas)>0:
+                                    for x in miArchivo[0]["trainers"]:
+                                        if x["id"]==seleccion:
+                                            piece=True
+                                            while piece==True:
+                                                son=0
+                                                qwerty=input("escoje una ruta:  ")
+                                                for m in range(len(listarutas)):
+                                                    if listarutas[m]==qwerty:
+                                                        son=1
+                                                        piece=False
+                                                if son==0:
+                                                    print("esta ruta no esta disponible")
+                                                    print("ingresa una ruta de las que se mostraron")
+                                            
+                                            for l in range(len(listarutas)-1,-1,-1):
+                                                listarutas.pop(l)
+                                            x["ruta"].append(qwerty)
+                                            guardarArchivo(miArchivo)
+                                            print("ruta agregada con exito")
+                                            pregun=input("quieres hacer otro cambio (si)\n"
+                                                        "si no quieres preciona enter\n")
+                                            if pregun!="si":
+                                                ole=False
                         menucoordinador()
                     
                     if opc==6:
