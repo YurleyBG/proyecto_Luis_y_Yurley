@@ -99,7 +99,16 @@ while bool==True:
                             print("--------")
                             print(miArchivo[0]["grupos"][i]["nombres"])
                             cont=0
-                        gru=input("que grupo quieres listar\n")
+                        punch=True
+                        while punch==True:
+                            cell=0
+                            gru=input("que grupo quieres listar\n")
+                            for i in miArchivo[0]["grupos"]:
+                                if i["nombres"]==gru:
+                                    cell=1
+                                    punch=False
+                            if cell==0:
+                                print("escoje un grupo de los que se mostraron (escribelo igual)")
                         for i in range(len(miArchivo[0]["grupos"])):
                             if miArchivo[0]["grupos"][i]["nombres"]==gru:
                                 for z in miArchivo[0]["grupos"][i]["grupo"]:
@@ -125,7 +134,18 @@ while bool==True:
                         while bucle==True:
                             print("")
                             print(":::::::::AÑADIR NUEVO CAMPER:::::::::")
-                            id=input("ingrese la id que quiere ing: ")
+                            old=True
+                            while old==True:
+                                fon=0
+                                id=input("ingrese la id: ")
+                                for i in miArchivo[0]["grupos"]:
+                                    for z in i["grupo"]:
+                                        if z["id"]==id:
+                                            print("este id ya existe, prueba con otro")
+                                            fon=1
+                                if fon==0:
+                                    old=False
+                                            
                             nombre=input("ingrese el nombre: ")
                             apellido=input("ingrese el apellido: ")
                             edad=input("ingrese la edad: ")
@@ -159,8 +179,8 @@ while bool==True:
 
                     if opc==3:
                         miArchivo=abrirArchivo()
-                        hola=True
-                        while hola==True:
+                        way=True
+                        while way==True:
                             print("estos son los estudiantes que estan en estado de ingreso")
                             for i in miArchivo[0]["ingreso"]:
                                 if i["estado"]=="progreso de ingreso":
@@ -171,44 +191,78 @@ while bool==True:
                                     print("estado:  ",i["estado"])
                                     print("=========================================================")
                                     print("")
-                            pedir=input("ingresa el id del estudiante al que le quieres asignar notas\n")
+                            hola=True
+                            while hola==True:
+                                co=0
+                                pedir=input("ingresa el id del estudiante al que le quieres asignar notas\n")
+                                for i in miArchivo[0]["ingreso"]:
+                                    if pedir==i["id"]:
+                                        co=1
+                                        hola=False
+                                if co==0:
+                                    print("ingresa un id de los que se muestran")
                             for i in miArchivo[0]["ingreso"]:
-                                if pedir==i["id"]:
-                                    hola=False
-                                else:
-                                    print("ingresa un id existente")
-                                    print("")
-                        for i in miArchivo[0]["ingreso"]:
-                            if i["id"]==pedir:
-                                archivo=i
-                                print("ingresa las notas")
-                                nota1=float(input("nota de la prueba teorica:  "))
-                                nota2=float(input("nota de la prueba practica:  "))
-                                nota1=nota1*30/90
-                                nota2=nota2*60/90
-                                resul=nota1+nota2
-                                print(resul)
-                                if resul>=60:
-                                    pregunta1=input("esta persona aprobó quieres cambiar su estado a cursando (si)(no):  ")
-                                    if pregunta1=="si":
+                                if i["id"]==pedir:
+                                    archivo=i
+                                    print("ingresa las notas")
+                                    puno=True
+                                    while puno==True:
+                                        try:
+                                            nota1=float(input("nota de la prueba teorica:  "))
+                                            if nota1>=0 and nota1<=100:
+                                                puno=False
+                                            else:
+                                                print("ingresa una nota entre 0 y 100")
+                                        except ValueError:
+                                            print("ingresa una nota valida")
+                                    puno=True
+                                    while puno==True:
+                                        try:
+                                            nota2=float(input("nota de la prueba practica:  "))
+                                            if nota2>=0 and nota2<=100:
+                                                puno=False
+                                            else:
+                                                print("ingresa una nota entre 0 y 100")
+                                        except ValueError:
+                                            print("ingresa una nota valida")
+                                    
+                                    nota1=nota1*0.4
+                                    nota2=nota2*0.6
+                                    resul=nota1+nota2
+                                    print(resul)
+                                    if resul>=60:
+                                        print("esta persona aprobó")
                                         i["estado"]="cursando"
                                         print("estas son las rutas que estan disponibles")
+                                        grups=[]
                                         for i in miArchivo[0]["grupos"]:
                                             if len(i["grupo"])<33:
                                                 print("--------")
                                                 print(i["nombres"])
                                                 print(i["ruta"])
-                                                print(i["modulos"])
-                                        pregunta2=input("ingresa el nombre del grupo que tiene la ruta que deseas:\n")
+                                                grups.append(i["nombres"])
+                                        soccer=True
+                                        while soccer==True:
+                                            pregunta2=input("ingresa el nombre del grupo que tiene la ruta que deseas:\n")
+                                            if pregunta2 in grups:
+                                                soccer=False
+                                            else:
+                                                print("este grupo no existe (o escribe bien el nombre)")
                                         for i in miArchivo[0]["grupos"]:
                                             if pregunta2==i["nombres"]:
                                                 i["grupo"].append(archivo)
-                                                
                                         print("se han aplicado los cambios")
-                        for i in range(len(miArchivo[0]["ingreso"])-1,-1,-1):
-                            if miArchivo[0]["ingreso"][i]["estado"]=="cursando":
-                                miArchivo[0]["ingreso"].pop(i)
-                        guardarArchivo(miArchivo)
+                                    if resul<60:
+                                        print("esta persona no aprobó")
+                                    sol=input("queiers hacer otro cambio (si)\n"
+                                              "o preciona enter para volver al menú")
+                                    if sol!="si":
+                                        way=False
+                            for i in range(len(miArchivo[0]["ingreso"])-1,-1,-1):
+                                if miArchivo[0]["ingreso"][i]["estado"]=="cursando":
+                                    miArchivo[0]["ingreso"].pop(i)
+                            guardarArchivo(miArchivo)
+                            
                         menucoordinador()
                     if opc==4:
                         miArchivo=abrirArchivo()

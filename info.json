@@ -202,35 +202,23 @@
                             "modulo5": "desaprobado",
                             "modulo1": "desaprobado"
                         }
+                    },
+                    {
+                        "id": "78",
+                        "nombre": "luz",
+                        "apellido": "perez",
+                        "edad": "18",
+                        "direccion": "20",
+                        "acudiente": "luz",
+                        "telefono": {
+                            "celular": 1244354,
+                            "fijo": 765752
+                        },
+                        "estado": "cursando",
+                        "riesgo": "",
+                        "modulos": {}
                     }
                 ]
-            },
-            {
-                "ruta": "fluorent",
-                "modulos": {
-                    "fundamentos de programacion": [
-                        "introduccion a la algoritmia",
-                        "PSeint",
-                        "Python"
-                    ],
-                    "programacion web": [
-                        "HTML",
-                        "CSS",
-                        "booststrap"
-                    ],
-                    "programacion formal": "JavaScrip",
-                    "bases de datos": [
-                        "PostGresql",
-                        "Mysql"
-                    ],
-                    "backend": [
-                        "NodeJS",
-                        "Expres"
-                    ]
-                },
-                "nombres": "t4",
-                "grupo": [],
-                "fecha de inicio": "kas2ek1"
             }
         ],
         "trainers": [
@@ -267,21 +255,6 @@
         ],
         "ingreso": [
             {
-                "id": "11",
-                "nombre": "jesus",
-                "apellido": "bustamante",
-                "edad": "17",
-                "direccion": "23-cal13",
-                "acudiente": "ingrid",
-                "telefono": {
-                    "celular": 324167823,
-                    "fijo": 33462
-                },
-                "estado": "progreso de ingreso",
-                "riesgo": "",
-                "modulos": {}
-            },
-            {
                 "id": "de21",
                 "nombre": "err",
                 "apellido": "reut",
@@ -293,6 +266,21 @@
                     "fijo": 123435
                 },
                 "estado": "progreso de ingreso",
+                "riesgo": "",
+                "modulos": {}
+            },
+            {
+                "id": "11",
+                "nombre": "jesus",
+                "apellido": "bustamante",
+                "edad": "17",
+                "direccion": "23-cal13",
+                "acudiente": "ingrid",
+                "telefono": {
+                    "celular": 324167823,
+                    "fijo": 33462
+                },
+                "estado": "cursando",
                 "riesgo": "",
                 "modulos": {}
             }
