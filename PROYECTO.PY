@@ -212,117 +212,136 @@ while bool==True:
                         menucoordinador()
                     if opc==4:
                         miArchivo=abrirArchivo()
+                        
                         print("")
 
                         print(":::::::::: CREAR RUTAS ACADEMICAS CON LOS MODULOS ::::::::::::::")
                         yo=True
                         while yo==True:
-                            uno=True
-                            ruta=input("ingresa el nombre de la nueva ruta\n")
-                            while uno==True:
-                                print("escoje una opcion para programacin formal")
-                                try:
-                                    modulo1=int(input("1.Java  2.JavaScript  3.C#)\n"))
-                                    if modulo1==1:
-                                        num1="Java"
-                                        uno=False
-                                    if modulo1==2:
-                                        num1="JavaScrip"
-                                        uno=False
-                                    if modulo1==3:
-                                        num1="C#"
-                                        uno=False
-                                except ValueError:
-                                    print("ingrese una opción valida")
-                            
-                            dos=True
-                            while dos==True:
-                                print("escoje el modulo principal para bases de datos")
-                                try:
-                                    modulo21=int(input("1.Mysql  2.MongoDB  3.PostGresql)\n"))
-                                    if modulo21==1:
-                                        num2="Mysql"
-                                        dos=False
-                                    if modulo21==2:
-                                        num2="MongoDB"
-                                        dos=False
-                                    if modulo21==3:
-                                        num2="PostGresql"
-                                        dos=False
-                                except ValueError:
-                                    print("ingrese una opción valida")
+                            rutas=[]
+                            xd=0
+                            for i in miArchivo[0]["grupos"]:
+                                for n in range(len(i["ruta"])):
+                                    xd=n
+                                    rutas.append(i["ruta"])
+                            if xd<12:
+                                ace=True
+                                while ace==True:
+                                    ruta=input("ingresa el nombre de la nueva ruta\n")
+                                    if ruta not in rutas:
+                                        ace=False
+                                    else:
+                                        print("este nombre no está disponible\ningresa uno valido")
+                                for h in range(len(rutas)-1,-1,-1):
+                                    rutas.pop(h)
+                                uno=True
+                                while uno==True:
+                                    print("escoje una opcion para programacin formal")
+                                    try:
+                                        modulo1=int(input("1.Java  2.JavaScript  3.C#)\n"))
+                                        if modulo1==1:
+                                            num1="Java"
+                                            uno=False
+                                        if modulo1==2:
+                                            num1="JavaScrip"
+                                            uno=False
+                                        if modulo1==3:
+                                            num1="C#"
+                                            uno=False
+                                    except ValueError:
+                                        print("ingrese una opción valida")
+                                
+                                dos=True
+                                while dos==True:
+                                    print("escoje el modulo principal para bases de datos")
+                                    try:
+                                        modulo21=int(input("1.Mysql  2.MongoDB  3.PostGresql)\n"))
+                                        if modulo21==1:
+                                            num2="Mysql"
+                                            dos=False
+                                        if modulo21==2:
+                                            num2="MongoDB"
+                                            dos=False
+                                        if modulo21==3:
+                                            num2="PostGresql"
+                                            dos=False
+                                    except ValueError:
+                                        print("ingrese una opción valida")
 
-                            tres=True
-                            while tres==True:
-                                print("escoje el modulo secundario para bases de datos")
-                                try:
-                                    modulo22=int(input())
-                                    if modulo22==1:
-                                        num3="Mysql"
-                                        tres=False
-                                    if modulo22==2:
-                                        num3="MongoDB"
-                                        tres=False
-                                    if modulo22==3:
-                                        num3="PostGresql"
-                                        tres=False
-                                except ValueError:
-                                    print("ingrese una opción valida")
+                                tres=True
+                                while tres==True:
+                                    print("escoje el modulo secundario para bases de datos")
+                                    try:
+                                        modulo22=int(input())
+                                        if modulo22==1:
+                                            num3="Mysql"
+                                            tres=False
+                                        if modulo22==2:
+                                            num3="MongoDB"
+                                            tres=False
+                                        if modulo22==3:
+                                            num3="PostGresql"
+                                            tres=False
+                                    except ValueError:
+                                        print("ingrese una opción valida")
 
-                            cuatro=True
-                            while cuatro==True:
-                                print("escoje el modulo principal para BACKEND")
-                                try:
-                                    modulo31=int(input("1.NetCore  2.Spring Boot  3.NodeJS  4.Expres)\n"))
-                                    if modulo31==1:
-                                        num4="NetCore"
-                                        cuatro=False
-                                    if modulo31==2:
-                                        num4="Spring Boot"
-                                        cuatro=False
-                                    if modulo31==3:
-                                        num4="NodeJS"
-                                        cuatro=False
-                                    if modulo31==4:
-                                        num4="Expres"
-                                        cuatro=False
-                                except ValueError:
-                                    print("ingrese una opción valida")
-                            
-                            cinco=True
-                            while cinco==True:
-                                print("escoje el modulo secundario para BACKEND")
-                                try:
-                                    modulo32=int(input())
-                                    if modulo32==1:
-                                        num5="NetCore"
-                                        cinco=False
-                                    if modulo32==2:
-                                        num5="Spring Boot"
-                                        cinco=False
-                                    if modulo32==3:
-                                        num5="NodeJS"
-                                        cinco=False
-                                    if modulo32==4:
-                                        num5="Expres"
-                                        cinco=False
-                                except ValueError:
-                                    print("ingrese una opción valida")
-                            
+                                cuatro=True
+                                while cuatro==True:
+                                    print("escoje el modulo principal para BACKEND")
+                                    try:
+                                        modulo31=int(input("1.NetCore  2.Spring Boot  3.NodeJS  4.Expres)\n"))
+                                        if modulo31==1:
+                                            num4="NetCore"
+                                            cuatro=False
+                                        if modulo31==2:
+                                            num4="Spring Boot"
+                                            cuatro=False
+                                        if modulo31==3:
+                                            num4="NodeJS"
+                                            cuatro=False
+                                        if modulo31==4:
+                                            num4="Expres"
+                                            cuatro=False
+                                    except ValueError:
+                                        print("ingrese una opción valida")
+                                
+                                cinco=True
+                                while cinco==True:
+                                    print("escoje el modulo secundario para BACKEND")
+                                    try:
+                                        modulo32=int(input())
+                                        if modulo32==1:
+                                            num5="NetCore"
+                                            cinco=False
+                                        if modulo32==2:
+                                            num5="Spring Boot"
+                                            cinco=False
+                                        if modulo32==3:
+                                            num5="NodeJS"
+                                            cinco=False
+                                        if modulo32==4:
+                                            num5="Expres"
+                                            cinco=False
+                                    except ValueError:
+                                        print("ingrese una opción valida")
+                                
 
-                            
-                            nuevonombre=input("ingresa el nombre del nuevo grupo\n")
-                            miArchivo[0]["grupos"].append({"ruta":ruta, "modulos":{"fundamentos de programacion": ["introduccion a la algoritmia", "PSeint", "Python"],
-                                                                                    "programacion web": ["HTML", "CSS", "booststrap"],
-                                                                                    "programacion formal":num1,
-                                                                                    "bases de datos":[num2,num3],
-                                                                                    "backend":[num4,num5]}, "nombres":nuevonombre, "grupo":[]})
-                            cambio=input("SE HA CREADO LA RUTA CON EXITO\n"
-                                            "crear otra ruta: (si)\n"
-                                            "volver al menu: (no)\n")
-                            if cambio=="no":
+                                
+                                nuevonombre=input("ingresa el nombre del nuevo grupo\n")
+                                miArchivo[0]["grupos"].append({"ruta":ruta, "modulos":{"fundamentos de programacion": ["introduccion a la algoritmia", "PSeint", "Python"],
+                                                                                        "programacion web": ["HTML", "CSS", "booststrap"],
+                                                                                        "programacion formal":num1,
+                                                                                        "bases de datos":[num2,num3],
+                                                                                        "backend":[num4,num5]}, "nombres":nuevonombre, "grupo":[]})
+                                cambio=input("SE HA CREADO LA RUTA CON EXITO\n"
+                                                "crear otra ruta: (si)\n"
+                                                "volver al menu: preciona enter\n")
+                                if cambio!="si":
+                                    yo=False
+                            else:
+                                print("ya se alcanzó el maximo de rutas que se pueden crear")
                                 yo=False
-                        guardarArchivo(miArchivo)
+                            guardarArchivo(miArchivo)
                         menucoordinador()
 
                     if opc==5:
