@@ -25,9 +25,9 @@
                     ]
                 },
                 "nombres": "t1",
-                "fecha de inicio":"14-feb-2024",
-                "fecha de finalizacion":"indefinida",
-                "salon":"aula 5",
+                "fecha de inicio": "98",
+                "fecha de finalizacion": "indefinida",
+                "salon": "aula ",
                 "grupo": [
                     {
                         "id": "1",
@@ -37,14 +37,12 @@
                         "direccion": "10-call 3",
                         "acudiente": "ana",
                         "telefono": {
-                            "celular": 3214567891,
-                            "fijo": 556782
+                            "celular": 321467891,
+                            "fijo": 6782
                         },
                         "estado": "cursando",
-                        "riesgo": "bajo",
-                        "modulos": {
-                            
-                        }
+                        "riesgo": "",
+                        "modulos": {}
                     },
                     {
                         "id": "2",
@@ -54,14 +52,12 @@
                         "direccion": "13-call 6",
                         "acudiente": "luis",
                         "telefono": {
-                            "celular": 3134567289,
+                            "celular": 3124567894,
                             "fijo": 889063
                         },
                         "estado": "cursando",
-                        "riesgo": "bajo",
-                        "modulos": {
-                            
-                        }
+                        "riesgo": "",
+                        "modulos": {}
                     }
                 ]
             },
@@ -89,9 +85,9 @@
                     ]
                 },
                 "nombres": "t2",
-                "fecha de inicio":"14-feb-2024",
-                "fecha de finalizacion":"indefinida",
-                "salon":"aula 10",
+                "fecha de inicio": "lsad",
+                "fecha de finalizacion": "indefinida",
+                "salon": "aula 10",
                 "grupo": [
                     {
                         "id": "3",
@@ -101,31 +97,42 @@
                         "direccion": "10-call4",
                         "acudiente": "pedro",
                         "telefono": {
-                            "celular": 3124567832,
-                            "fijo": 556778
+                            "celular": 312467832,
+                            "fijo": 6778
                         },
                         "estado": "cursando",
-                        "riesgo": "bajo",
-                        "modulos": {
-                            
-                        }
+                        "riesgo": "",
+                        "modulos": {}
                     },
                     {
                         "id": "4",
                         "nombre": "maria",
                         "apellido": "sandoval",
-                        "edad": "25",
+                        "edad": "2",
                         "direccion": "11-call6",
                         "acudiente": "maria",
                         "telefono": {
-                            "celular": 3167834526,
-                            "fijo": 590876
+                            "celular": 316783426,
+                            "fijo": 90876
                         },
                         "estado": "cursando",
-                        "riesgo": "medio",
-                        "modulos": {
-                            
-                        }
+                        "riesgo": "",
+                        "modulos": {}
+                    },
+                    {
+                        "id": "234",
+                        "nombre": "ZULLY",
+                        "apellido": "ortiz",
+                        "edad": "18",
+                        "direccion": "Diocesano",
+                        "acudiente": "Fabiola ",
+                        "telefono": {
+                            "celular": 31264846,
+                            "fijo": 12364
+                        },
+                        "estado": "cursando",
+                        "riesgo": "",
+                        "modulos": {}
                     }
                 ]
             },
@@ -153,9 +160,9 @@
                     ]
                 },
                 "nombres": "t3",
-                "fecha de inicio":"14-Mar-2024",
-                "fecha de finalizacion":"indefinida",
-                "salon":"aula 5",
+                "fecha de inicio": "ksad",
+                "fecha de finalizacion": "indefinida",
+                "salon": "aula ",
                 "grupo": [
                     {
                         "id": "5",
@@ -165,13 +172,14 @@
                         "direccion": "14-call7",
                         "acudiente": "camilo",
                         "telefono": {
-                            "celular": 3214555890,
-                            "fijo": 554321
+                            "celular": 3214890,
+                            "fijo": 4321
                         },
                         "estado": "cursando",
-                        "riesgo": "alto",
+                        "riesgo": "",
                         "modulos": {
-
+                            "modulo1": "aprobado",
+                            "modulo2": "aprobado"
                         }
                     },
                     {
@@ -179,16 +187,16 @@
                         "nombre": "sofia",
                         "apellido": "suarez",
                         "edad": "19",
-                        "direccion": "15-call6",
+                        "direccion": "1-call6",
                         "acudiente": "sofia",
                         "telefono": {
-                            "celular": 3224578999,
-                            "fijo": 567843
+                            "celular": 322478999,
+                            "fijo": 67843
                         },
                         "estado": "cursando",
                         "riesgo": "",
                         "modulos": {
-                            "modulo5": "aprobado",
+                            "modulo": "aprobado",
                             "modulo3": "aprobado",
                             "modulo1": "desaprobado"
                         }
@@ -219,7 +227,8 @@
                     ]
                 },
                 "nombres": "t4",
-                "grupo": []
+                "grupo": [],
+                "fecha de inicio": "kas2ek1"
             }
         ],
         "trainers": [
@@ -228,8 +237,33 @@
                 "nombre": "pedro",
                 "apellido": "canizares",
                 "edad": "24",
-                "ruta": "",
-                "grupos": "t1"
+                "ruta": {
+                    "ruta": "fluorent",
+                    "modulos": {
+                        "fundamentos de programacion": [
+                            "introduccion a la algoritmia",
+                            "PSeint",
+                            "Python"
+                        ],
+                        "programacion web": [
+                            "HTML",
+                            "CSS",
+                            "booststrap"
+                        ],
+                        "programacion formal": "JavaScrip",
+                        "bases de datos": [
+                            "PostGresql",
+                            "Mysql"
+                        ],
+                        "backend": [
+                            "NodeJS",
+                            "Expres"
+                        ]
+                    }
+                },
+                "grupos": [
+                    "t4"
+                ]
             },
             {
                 "id": 2,
@@ -261,7 +295,6 @@
                     }
                 },
                 "grupos": "t3"
-                
             },
             {
                 "id": 3,
@@ -283,34 +316,6 @@
         ],
         "ingreso": [
             {
-                "id": "8",
-                "nombre": "sara",
-                "apellido": "perez",
-                "edad": "19",
-                "direccion": "18-call9",
-                "acudiente": "saras",
-                "telefono": {
-                    "celular": 322342342,
-                    "fijo": 5532423
-                },
-                "estado": "cursando",
-                "riesgo": ""
-            },
-            {
-                "id": "234",
-                "nombre": "ZULLY",
-                "apellido": "ortiz",
-                "edad": "18",
-                "direccion": "Diocesano",
-                "acudiente": "Fabiola ",
-                "telefono": {
-                    "celular": 3125648456,
-                    "fijo": 123654
-                },
-                "estado": "progreso de ingreso",
-                "riesgo": ""
-            },
-            {
                 "id": "11",
                 "nombre": "jesus",
                 "apellido": "bustamante",
@@ -318,11 +323,27 @@
                 "direccion": "23-cal13",
                 "acudiente": "ingrid",
                 "telefono": {
-                    "celular": 3245167823,
-                    "fijo": 334562
+                    "celular": 324167823,
+                    "fijo": 33462
                 },
                 "estado": "progreso de ingreso",
-                "riesgo": ""
+                "riesgo": "",
+                "modulos": {}
+            },
+            {
+                "id": "de21",
+                "nombre": "err",
+                "apellido": "reut",
+                "edad": "yurrtr",
+                "direccion": "dt",
+                "acudiente": "",
+                "telefono": {
+                    "celular": 3412324,
+                    "fijo": 123435
+                },
+                "estado": "progreso de ingreso",
+                "riesgo": "",
+                "modulos": {}
             }
         ]
     }
