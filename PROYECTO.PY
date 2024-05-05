@@ -29,13 +29,24 @@ def menucoordinador():
           "8 actualizar datos de campers\n"
           "9 volver al menu principal\n"
           ":::::::::::::::::::::::::\n")
+def menumodiftrainer():
+    print(":::::::::: MENÚ DE DATOS ::::::::::\n"
+          "1 Nombre\n"
+          "2 Apellido\n"
+          "3 Telefono\n"
+          "4 User\n"
+          "5 Contraseña\n"
+          "6 Edad\n"
+          "7 Finalizar\n"
+          ":::::::::::::::::::::::::::::::::::\n")
+
 
 
 def menutrainer():
     print("::::::::::::::MENÚ:::::::::::::\n"
-          "1 mostrar horarios y ruta de los trainers\n"
-          "2 ver menu de reportes\n"
-          "3 volver al menu principal")
+          "1 mostrar horarios y ruta\n"
+          "2 actualizar datos\n"
+          "3 salir")
 
 
 def menureportes():
@@ -343,7 +354,7 @@ while bool==True:
                                 while cuatro==True:
                                     print("escoje el modulo principal para BACKEND")
                                     try:
-                                        modulo31=int(input("1.NetCore  2.Spring Boot  3.NodeJS  4.Expres)\n"))
+                                        modulo31=int(input("1.NetCore  2.Spring Boot  3.NodeJS  4.Expres\n"))
                                         if modulo31==1:
                                             num4="NetCore"
                                             cuatro=False
@@ -378,15 +389,46 @@ while bool==True:
                                             cinco=False
                                     except ValueError:
                                         print("ingrese una opción valida")
-                                
+                                listasalones=[]
+                                for p in miArchivo[0]["grupos"]:
+                                    listasalones.append(p["salon de entrenamiento"])
+                                salon1=0
+                                salon2=0
+                                salon3=0
+                                for h in range(len(listasalones)):
+                                    if listasalones[h]=="aula1":
+                                        salon1=salon1+1
+                                    if listasalones[h]=="aula2":
+                                        salon2=salon2+1
+                                    if listasalones[h]=="aula3":
+                                        salon3=salon3+1
+                                listaaula=[]
+                                if salon1<4:
+                                    print("aula1")
+                                    listaaula.append("aula1")
+                                if salon2<4:
+                                    print("aula2")
+                                    listaaula.append("aula2")
+                                if salon3<4:
+                                    print("aula3")
+                                    listaaula.append("aula3")
 
+                                yuju=True
+                                while yuju==True:
+                                    escoje=input("escoje un salon de entranamiento de los que acabo de mostrar\n")
+                                    if escoje in listaaula:
+                                        yuju=False
+                                    else:
+                                        print("esta aula no esta disponible o lo escribiste mal")
                                 
+                                fechaI=input("ingresa la fecha de INICIO DD-MM-AA\n")
+                                fechaF=input("ingresa la fecha de FINALIZACIÓN DD-MM-AA\n")
                                 nuevonombre=input("ingresa el nombre del nuevo grupo\n")
                                 miArchivo[0]["grupos"].append({"ruta":ruta, "modulos":{"fundamentos de programacion": ["introduccion a la algoritmia", "PSeint", "Python"],
                                                                                         "programacion web": ["HTML", "CSS", "booststrap"],
                                                                                         "programacion formal":num1,
                                                                                         "bases de datos":[num2,num3],
-                                                                                        "backend":[num4,num5]}, "nombres":nuevonombre, "grupo":[]})
+                                                                                        "backend":[num4,num5]}, "nombres":nuevonombre,"fecha de inicio":fechaI,"fecha de finalizacion":fechaF,"salon de entrenamiento":escoje, "grupo":[]})
                                 cambio=input("SE HA CREADO LA RUTA CON EXITO\n"
                                                 "crear otra ruta: (si)\n"
                                                 "volver al menu: preciona enter\n")
@@ -775,7 +817,94 @@ while bool==True:
                         menu()
                 except ValueError:
                     print("INGRESA UNA OPCIÓN VALIDA")
-        
+
+        if opc==2:
+            miArchivo=abrirArchivo()
+            read=True
+            while read==True:
+                user=input("nombre de usuario (presiona enter si lo que quieres es salir)\n")
+                if user!="":
+                    contra=input("contraseña\n")
+                else:
+                    read=False
+                for i in miArchivo[0]["trainers"]:
+                    if i["user"]==user and i["contraseña"]==contra:
+                        menutrainer()
+                        tutu=True
+                        while tutu==True:
+                            try:
+                                opctra=int(input("escoge una opción:  "))
+                                if opctra==1:
+                                    if len(i["ruta"])==4:
+                                        print("---(6am-10am)-----(10am-2pm)-----(2pm-6pm)-----(6pm-10pm)")
+                                        print("---(",i["ruta"][0],")-----(",i["ruta"][1],")-----(",i["ruta"][2],")-----(",i["ruta"][3],")")
+                                    if len(i["ruta"])==3:
+                                        print("---(6am-10am)-----(10am-2pm)-----(2pm-6pm)")
+                                        print("---(",i["ruta"][0],")-----(",i["ruta"][1],")-----(",i["ruta"][2],")")
+                                    if len(i["ruta"])==2:
+                                        print("---(6am-10am)-----(10am-2pm)")
+                                        print("---(",i["ruta"][0],")-----(",i["ruta"][1],")")
+                                    if len(i["ruta"])==1:
+                                        print("---(6am-10am)-----")
+                                        print("---(",i["ruta"][0],")-----")
+                                    if len(i["ruta"])==0:
+                                        print("no tienes ninguna ruta")
+                                    menutrainer()
+                                
+                                if opctra==2:
+                                    menumodiftrainer()
+                                    totoro=True
+                                    while totoro==True:
+                                        try:
+                                            red=int(input("ingrese su opcion: "))
+                                            if red==1:
+                                                nom=input("ingresa el nuevo nombre:  ")
+                                                i["nombre"]=nom
+                                                print("cambio realizado")
+                                                guardarArchivo(miArchivo)
+                                            if red==2:
+                                                ape=input("ingrsa el nuevo apellido:  ")
+                                                i["apellido"]=ape
+                                                print("cambio realizado")
+                                                guardarArchivo(miArchivo)
+                                            if red==3:
+                                                fus=True
+                                                while fus==True:
+                                                    try:
+                                                        telefono=int(input("ingresa el nuevo numero de telefono:  "))
+                                                        fus=False
+                                                    except ValueError:
+                                                        print("ingresa un numero valido")
+                                                i["telefono"]=telefono
+                                                print("cambio realizado")
+                                                guardarArchivo(miArchivo)
+                                            if red==4:
+                                                use=input("ingresa el nuevo nombre de usuario:  ")
+                                                i["user"]=use
+                                                print("cambio realizado")
+                                                guardarArchivo(miArchivo)
+                                            if red==5:
+                                                contraseña=input("ingresa la nueva contraseña:  ")
+                                                i["cotraseña"]=contraseña
+                                                print("cambio realizado")
+                                                guardarArchivo(miArchivo)
+                                            if red==6:
+                                                edad=input(" ingrese su nueva edad: ")
+                                                i["edad"]=edad
+                                                print("cambio realizado")
+                                                guardarArchivo(miArchivo)
+                                            if red==7:
+                                                totoro=False
+                                            if red<1 or red>7:
+                                                print("ingresa una opción valida")
+                                        except ValueError:
+                                            print("ingresa una opción valida")
+                                    menutrainer()
+                                if opctra==3:
+                                    tutu=False
+                            except ValueError:
+                                print("ingresa una opción valida")
+            menu()
         elif opc==3:
             print("MODULO DE REPORTES")
             print("")
@@ -786,28 +915,37 @@ while bool==True:
                     opc=int(input("ingrese su opcion porfavor: "))
                     if opc==1:
                         for i in range(len(miArchivo[0]["grupos"])):
-                                    print("--------")
-                                    print(miArchivo[0]["grupos"][i]["nombres"])
-                                    cont=0
-                        grip=input("que grupo quieres listar\n")
+                            print("--------")
+                            print(miArchivo[0]["grupos"][i]["nombres"])
+                            cont=0
+                        punch=True
+                        while punch==True:
+                            cell=0
+                            gru=input("que grupo quieres listar\n")
+                            for i in miArchivo[0]["grupos"]:
+                                if i["nombres"]==gru:
+                                    cell=1
+                                    punch=False
+                            if cell==0:
+                                print("escoje un grupo de los que se mostraron (escribelo igual)")
                         for i in range(len(miArchivo[0]["grupos"])):
-                                    if miArchivo[0]["grupos"][i]["nombres"]==grip:
-                                        for z in miArchivo[0]["grupos"][i]["grupo"]:
-                                            cont+=1
-                                            print(" ")
-                                            print("==================== CAMPER # ",cont,"==============================")
-                                            print("id: ",z["id"])
-                                            print("nombre: ", z["nombre"])
-                                            print("apellido: ", z["apellido"])
-                                            print("edad: ", z["edad"])
-                                            print("direccion: ", z["direccion"])
-                                            print("acudiente: ", z["acudiente"])
-                                            print("telefono: ", z["telefono"])
-                                            print("estado: ", z["estado"])
-                                            print("riesgo: ", z["riesgo"])
-                                            print("=========================================================")
-                                            print("")
-                        menureportes() 
+                            if miArchivo[0]["grupos"][i]["nombres"]==gru:
+                                for z in miArchivo[0]["grupos"][i]["grupo"]:
+                                    cont+=1
+                                    print(" ")
+                                    print("==================== CAMPER # ",cont,"==============================")
+                                    print("id: ",z["id"])
+                                    print("nombre: ", z["nombre"])
+                                    print("apellido: ", z["apellido"])
+                                    print("edad: ", z["edad"])
+                                    print("direccion: ", z["direccion"])
+                                    print("acudiente: ", z["acudiente"])
+                                    print("telefono: ", z["telefono"])
+                                    print("estado: ", z["estado"])
+                                    print("riesgo: ", z["riesgo"])
+                                    print("=========================================================")
+                                    print("")
+                        menureportes()
                     if opc==2:
                         print("")    
                         print("=========CAMPERS QUE APROBARON EL EXAMEN PRINCIPAL =============")   
@@ -833,7 +971,6 @@ while bool==True:
                             print("apellido: ", i["apellido"])
                             print("edad: ", i["edad"])
                             print("ruta: ", i["ruta"])
-                            print("grupos: ", i["grupos"])
                             print("===================================================")
                         menureportes()  
                     if opc==4:
@@ -885,27 +1022,24 @@ while bool==True:
                         print("")
                         print(":::::::TRAINERS:::::::::::")
                         for i in  miArchivo[0]["trainers"]:
-                            if i["ruta"]!="":
+                            if len(i["ruta"])>0:
                                 
                                 print(" ")
                                 print("==================================================")
                                 print("id: ",i["id"])
                                 print("nombre: ", i["nombre"])
                                 print("apellido: ", i["apellido"])
-                                print("ruta: ", i["ruta"]["ruta"])
-                                print("modulos", i["ruta"]["modulos"])
+                                print("ruta: ", i["ruta"])
                                 print("===================================================")
                                 print("")
                         for i in  miArchivo[0]["grupos"]:
                                 
-                            if i["ruta"]=="NetCore" or i["ruta"]=="java" or i["ruta"]=="nodeJS":
+                            if len(i["grupo"])>0:
                                 print(" ")
                                 print(":::::CAMPERS CON RUTA:::::::")
                                 for a in i["grupo"]:
-                                    print(" ")
+                                    print("")
                                     print("ruta: ", i["ruta"])
-                                    print("modulos: ", i["modulos"])
-                                    print("nombre:  ", i["nombres"])
                                     print("==================================================")
                                     print("id: ",a["id"])
                                     print("nombre: ", a["nombre"])

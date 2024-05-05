@@ -25,9 +25,9 @@
                     ]
                 },
                 "nombres": "t1",
-                "fecha de inicio": "98",
-                "fecha de finalizacion": "indefinida",
-                "salon": "aula ",
+                "fecha de inicio": "20-01-2024",
+                "fecha de finalizacion": "20-11-2024",
+                "salon de entrenamiento": "aula1",
                 "grupo": [
                     {
                         "id": "1",
@@ -85,9 +85,9 @@
                     ]
                 },
                 "nombres": "t2",
-                "fecha de inicio": "lsad",
-                "fecha de finalizacion": "indefinida",
-                "salon": "aula 10",
+                "fecha de inicio": "10-02-2024",
+                "fecha de finalizacion": "10-11-2024",
+                "salon de entrenamiento": "aula2",
                 "grupo": [
                     {
                         "id": "3",
@@ -160,9 +160,9 @@
                     ]
                 },
                 "nombres": "t3",
-                "fecha de inicio": "ksad",
-                "fecha de finalizacion": "indefinida",
-                "salon": "aula ",
+                "fecha de inicio": "01-01-2024",
+                "fecha de finalizacion": "14-12-2024",
+                "salon de entrenamiento": "aula3",
                 "grupo": [
                     {
                         "id": "5",
@@ -226,7 +226,10 @@
                 "id": 1,
                 "nombre": "pedro",
                 "apellido": "canizares",
-                "edad": "24",
+                "Telefono": 3212231223,
+                "user": "pedro",
+                "contrase\u00f1a": "p123",
+                "edad": "20",
                 "ruta": []
             },
             {
@@ -234,12 +237,16 @@
                 "nombre": "michael",
                 "apellido": " rodriguez",
                 "edad": "27",
+                "user": "michael",
+                "contrase\u00f1a": "m123",
                 "ruta": []
             },
             {
                 "id": 3,
                 "nombre": "orbin",
                 "apellido": "contreras",
+                "user": "orbin",
+                "contrase\u00f1a": "o123",
                 "edad": "30",
                 "ruta": []
             }
