@@ -327,12 +327,10 @@ while bool==True:
 
                     if opc==5:
                         miArchivo=abrirArchivo()
-                        repeat=True
-                        while repeat==True:
-                            c=0
-                            print("estos son los trainers que no tienen ruta")
+                        ole=True
+                        while ole==True:
                             for i in miArchivo[0]["trainers"]:
-                                if i["ruta"]=="":
+                                if len(i["ruta"])<4:
                                     print("")
                                     print("--------------------------------")
                                     print("id:  ", i["id"])
@@ -340,46 +338,21 @@ while bool==True:
                                     print("apellido", i["apellido"])
                                     print("--------------------------------")
                                     print("")
-                                    c=1
-                            if c<1:
-                                print("\n"
-                                      "no hay trainers sin ruta\n"
-                                      "")
-                                repeat=False
-                            else:
-                                verdadero=True
-                                while verdadero==True:
-                                    try:
-                                        pregunta=int(input("ingresa el id del trainer al que le deseas asignar ruta\n"))
-                                    except ValueError:
-                                        print("INGRESA UNA ID VALIDA")
+                            miau=True
+                            while miau==True:
+                                cont=0
+                                try:
+                                    seleccion=int(input("ingresa el id del trainer al que le quieres asignar una ruta\n"))
                                     for i in miArchivo[0]["trainers"]:
-                                        if i["id"]==pregunta and i["ruta"]=="":
-                                            print("estas son las rutas disponibles")
-                                            for z in miArchivo[0]["grupos"]:
-                                                print("-------------------------------")
-                                                print("ruta: ", z["ruta"])
-                                                print("MODULOS")
-                                                print("fundamentos de programacion: ", z["modulos"]["fundamentos de programacion"])
-                                                print("programacion web: ", z["modulos"]["programacion web"])
-                                                print("programacion formal: ", z["modulos"]["programacion formal"])
-                                                print("bases de datos: ", z["modulos"]["bases de datos"])
-                                                print("backend: ", z["modulos"]["backend"])
-                                                print("grupo: ", z["nombres"])
-                                                print("-------------------------------")
-                                                print("")
-                                            nomgru=input("ingresa el nombre del grupo que tiene la ruta que deseas\n")
-                                            for a in miArchivo[0]["grupos"]:
-                                                if a["nombres"]==nomgru:
-                                                    i["ruta"]={"ruta":a["ruta"], "modulos":a["modulos"]}
-                                                    i["grupos"]=[a["nombres"]]
-                                                    print("cambio realizado")
-                                                    guardarArchivo(miArchivo)
-                                                    pregun=input("quieres asignarle ruta a otro trainer(si)(no)\n")
-                                                    if pregun=="no":
-                                                        verdadero=False
-                                                        repeat=False
-                            menucoordinador()
+                                        if len(i["ruta"])<4 and seleccion==i["id"]:
+                                            cont=1
+                                            miau=False
+                                    if cont==0:
+                                        print("ingresa un id de los que muestran")
+                                except ValueError:
+                                    print("ingresa un id valido")
+                                
+                        menucoordinador()
                     
                     if opc==6:
                         miArchivo=abrirArchivo()

@@ -237,72 +237,21 @@
                 "nombre": "pedro",
                 "apellido": "canizares",
                 "edad": "24",
-                "ruta": {
-                    "ruta": "fluorent",
-                    "modulos": {
-                        "fundamentos de programacion": [
-                            "introduccion a la algoritmia",
-                            "PSeint",
-                            "Python"
-                        ],
-                        "programacion web": [
-                            "HTML",
-                            "CSS",
-                            "booststrap"
-                        ],
-                        "programacion formal": "JavaScrip",
-                        "bases de datos": [
-                            "PostGresql",
-                            "Mysql"
-                        ],
-                        "backend": [
-                            "NodeJS",
-                            "Expres"
-                        ]
-                    }
-                },
-                "grupos": [
-                    "t4"
-                ]
+                "ruta": []
             },
             {
                 "id": 2,
                 "nombre": "michael",
                 "apellido": " rodriguez",
                 "edad": "27",
-                "ruta": {
-                    "ruta": "NetCore",
-                    "modulos": {
-                        "fundamentos de programacion": [
-                            "introduccion a la algoritmia",
-                            "PSeint",
-                            "Python"
-                        ],
-                        "programacion web": [
-                            "HTML",
-                            "CSS",
-                            "booststrap"
-                        ],
-                        "programacion formal": "JavaScript",
-                        "bases de datos": [
-                            "PostGresql",
-                            "Mysql"
-                        ],
-                        "backend": [
-                            "NetCore",
-                            "Expres"
-                        ]
-                    }
-                },
-                "grupos": "t3"
+                "ruta": []
             },
             {
                 "id": 3,
                 "nombre": "orbin",
                 "apellido": "contreras",
                 "edad": "30",
-                "ruta": "",
-                "grupos": "t2"
+                "ruta": []
             }
         ],
         "coordinador": [
