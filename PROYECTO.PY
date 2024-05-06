@@ -903,15 +903,15 @@ while bool==True:#utilizamos un while para la creacion de un bucle
                             except ValueError:
                                 print("ingresa una opción valida")
             menu()
-        elif opc==3:
+        elif opc==3:#la opcion 3 es para el modulo de reportes
             print("MODULO DE REPORTES")
             print("")
-            menureportes()
+            menureportes()#se imprime el menu
             mjb=True
-            while mjb==True:
+            while mjb==True:#se inicia un bucle para que se pueda decidir cuando tarminarlo
                 try:
                     opc=int(input("ingrese su opcion porfavor: "))
-                    if opc==1:
+                    if opc==1:#la opcion 1 ya esta esplicada en el principio de todo el codigo
                         for i in range(len(miArchivo[0]["grupos"])):
                             print("--------")
                             print(miArchivo[0]["grupos"][i]["nombres"])
@@ -947,13 +947,13 @@ while bool==True:#utilizamos un while para la creacion de un bucle
                     if opc==2:
                         print("")    
                         print("=========CAMPERS QUE APROBARON EL EXAMEN PRINCIPAL =============")   
-                        for i in miArchivo[0]["grupos"]:
+                        for i in miArchivo[0]["grupos"]:#analiza cada grupo
                             for d in i["grupo"]:
-                                if d["estado"]=="cursando":
+                                if d["estado"]=="cursando":#y si el estado del estudiante es cursando significa que aprobo el examan de ingreso
                                     print("=========================================================")
                                     print("id:  ",d["id"])
                                     print("nombre:  ",d["nombre"])
-                                    print("apellido:  ",d["apellido"])
+                                    print("apellido:  ",d["apellido"])#se imprimen los datos de cada estudante
                                     print("estado:  ",d["estado"])
                                     print("=========================================================")
                                     print("")
@@ -961,26 +961,26 @@ while bool==True:#utilizamos un while para la creacion de un bucle
                     if opc==3:
                         print("") 
                         print("::::::::::::::TRAINERS:::::::::::::::") 
-                        for i in miArchivo[0]["trainers"]:
+                        for i in miArchivo[0]["trainers"]:#va a la ubicacion de cada trainer 
                             print(" ")
                             print("==================================================")
                             print("id: ",i["id"])
                             print("nombre: ", i["nombre"])
-                            print("apellido: ", i["apellido"])
+                            print("apellido: ", i["apellido"])# y imprime su informacion
                             print("edad: ", i["edad"])
                             print("ruta: ", i["ruta"])
                             print("===================================================")
                         menureportes()  
                     if opc==4:
                         miArchivo=abrirArchivo()
-                        for i in miArchivo[0]["grupos"]:
-                            for z in i["grupo"]:
-                                one=0
-                                if "modulo1" in z["modulos"]:
-                                    if z["modulos"]["modulo1"]=="desaprobado":
-                                        one=one+1
+                        for i in miArchivo[0]["grupos"]:#va a la ubicacion de grupos
+                            for z in i["grupo"]:#va a la ubicacion de cada camper
+                                one=0#el contador comienza valiendo 0
+                                if "modulo1" in z["modulos"]:#primero se verifica que el modulo este existente
+                                    if z["modulos"]["modulo1"]=="desaprobado":#y si el modulo es desaprobado
+                                        one=one+1#se suma uno al contador
                                 if "modulo2" in z["modulos"]:
-                                    if z["modulos"]["modulo2"]=="desaprobado":
+                                    if z["modulos"]["modulo2"]=="desaprobado":#y asi se hace con los otros
                                         one=one+1
                                 if "modulo3" in z["modulos"]:
                                     if z["modulos"]["modulo3"]=="desaprobado":
@@ -991,9 +991,9 @@ while bool==True:#utilizamos un while para la creacion de un bucle
                                 if "modulo5" in z["modulos"]:
                                     if z["modulos"]["modulo5"]=="desaprobado":
                                         one=one+1
-                                if one>=3:
+                                if one>=3:#si el contador es mayor o igual a 3 significa que el rezgo va a ser alto
                                     z["riesgo"]="alto"
-                                else:
+                                else:# y si no el riesgo es bajo
                                     z["riesgo"]="bajo"
                         guardarArchivo(miArchivo)
 
@@ -1003,9 +1003,9 @@ while bool==True:#utilizamos un while para la creacion de un bucle
                         print("::::::::::::::CAMPERS DE BAJO RENDIMIENTO:::::::::::::::") 
                         print("Todos aquellos campers que cuentan con un riesgo alto equivale a un rendimiento bajo")
                         for i in miArchivo[0]["grupos"]:
-                            for a in i["grupo"]:
+                            for a in i["grupo"]:#va a la ubicacion de cada camper 
                         
-                                if a["riesgo"]=="alto":
+                                if a["riesgo"]=="alto":#y si el riezgo es alto se imprimen los datos
                                     print(" ")
                                     print("==================================================")
                                     print("id: ",a["id"])
@@ -1020,28 +1020,28 @@ while bool==True:#utilizamos un while para la creacion de un bucle
                         print("")
                         print(":::::::TRAINERS:::::::::::")
                         for i in  miArchivo[0]["trainers"]:
-                            if len(i["ruta"])>0:
+                            if len(i["ruta"])>0:#si la cantidad de rutas es mayor a 3 
                                 
                                 print(" ")
                                 print("==================================================")
                                 print("id: ",i["id"])
                                 print("nombre: ", i["nombre"])
-                                print("apellido: ", i["apellido"])
+                                print("apellido: ", i["apellido"])#se imprimen los datos de los trainers
                                 print("ruta: ", i["ruta"])
                                 print("===================================================")
                                 print("")
                         for i in  miArchivo[0]["grupos"]:
                                 
-                            if len(i["grupo"])>0:
+                            if len(i["grupo"])>0:#si la cantidad de estudiantes es mayor a 0
                                 print(" ")
                                 print(":::::CAMPERS CON RUTA:::::::")
                                 for a in i["grupo"]:
                                     print("")
-                                    print("ruta: ", i["ruta"])
+                                    print("ruta: ", i["ruta"])#se imprime la ruta
                                     print("==================================================")
                                     print("id: ",a["id"])
                                     print("nombre: ", a["nombre"])
-                                    print("apellido: ", a["apellido"])
+                                    print("apellido: ", a["apellido"])#y los datos de ellos
                                     print("===================================================")
                                     print("")
                         menureportes()
@@ -1049,42 +1049,43 @@ while bool==True:#utilizamos un while para la creacion de un bucle
                     if opc==6:
                         miArchivo=abrirArchivo()
                         opcion6=True
-                        while opcion6==True:
+                        while opcion6==True:#se inicia bucle
                             for i in miArchivo[0]["grupos"]:
                                 print("")
                                 print("--------------------------------")
-                                print("ruta:  ", i["ruta"])
+                                print("ruta:  ", i["ruta"])#se imprimen las rutas
                                 print("")
                             pregunt=input("que ruta quieres ver")
                             for i in miArchivo[0]["grupos"]:
                                 if pregunt==i["ruta"]:
                                     print("--------------------------------")
-                                    print("ruta:  ", i["ruta"])
+                                    print("ruta:  ", i["ruta"])#se imprime la ruta se es igual a la que se escogio
                                     print("")
-                                    for z in miArchivo[0]["trainers"]:
-                                        if z["ruta"]==i["ruta"]:
-                                            print("trainer encargado")
-                                            print("")
-                                            print("id: ", z["id"])
-                                            print("nomdre: ", z["nombre"])
-                                            print("apellido: ", z["apellido"])
-                                            print("")
-                                    notasmodulos()
+                                    for z in miArchivo[0]["trainers"]:#va a la ubicacion de los trainers 
+                                        for f in range(len(z["ruta"])):
+                                            if z["ruta"][f]==i["ruta"]:#si la ruta que se escogio es igual a una ruta de algun trainer
+                                                print("trainer encargado")
+                                                print("")
+                                                print("id: ", z["id"])
+                                                print("nomdre: ", z["nombre"])#se imprimen los datos del trainer
+                                                print("apellido: ", z["apellido"])
+                                                print("")
+                                    notasmodulos()#se imprime el menu
                                     diez=True
-                                    while diez==True:
+                                    while diez==True:#se inicia bucle
                                         try:
                                             opc6=int(input("que modulo quieres ver\n"))
                                             if opc6==1:
                                                 print("campers que aprobaron el modulo")
-                                                print("fundamentos de programacion:  ", i["modulos"]["fundamentos de programacion"])
+                                                print("fundamentos de programacion:  ", i["modulos"]["fundamentos de programacion"])#se imprimen los detalles del modulo
                                                 print("")
-                                                for r in i["grupo"]:
-                                                    if "modulo1" in r["modulos"]:
-                                                        if r["modulos"]["modulo1"]=="aprobado":
+                                                for r in i["grupo"]:#va a la ubicacion donde esta el estudiante
+                                                    if "modulo1" in r["modulos"]:#se verifica que haya nota del modulo
+                                                        if r["modulos"]["modulo1"]=="aprobado":#si el modulo lo aprobó 
                                                             print("------------------------")
                                                             print("id: ", r["id"])
                                                             print("nomdre: ", r["nombre"])
-                                                            print("apellido: ", r["apellido"])
+                                                            print("apellido: ", r["apellido"])#se imprimen los datos de ese estudiante
                                                             print("resultado del modulo: ", r["modulos"]["modulo1"])
                                                             print("------------------------")
                                                             print("")
@@ -1093,7 +1094,7 @@ while bool==True:#utilizamos un while para la creacion de un bucle
                                                 print("")
                                                 for r in i["grupo"]:
                                                     if "modulo1" in r["modulos"]:
-                                                        if r["modulos"]["modulo1"]=="desaprovado":
+                                                        if r["modulos"]["modulo1"]=="desaprovado":#se hace lo mismo que lo de arriba pero solo se imprimen los que no aprobaron
                                                             print("------------------------")
                                                             print("id: ", r["id"])
                                                             print("nomdre: ", r["nombre"])
@@ -1109,7 +1110,7 @@ while bool==True:#utilizamos un while para la creacion de un bucle
                                                 for r in i["grupo"]:
                                                     if "modulo2" in r["modulos"]:
                                                         if r["modulos"]["modulo2"]=="aprobado":
-                                                            print("------------------------")
+                                                            print("------------------------")#se repite lo mismo pero con el segundo modulo
                                                             print("id: ", r["id"])
                                                             print("nomdre: ", r["nombre"])
                                                             print("apellido: ", r["apellido"])
@@ -1137,7 +1138,7 @@ while bool==True:#utilizamos un while para la creacion de un bucle
                                                 for r in i["grupo"]:
                                                     if "modulo3" in r["modulos"]:
                                                         if r["modulos"]["modulo3"]=="aprobado":
-                                                            print("------------------------")
+                                                            print("------------------------")#se repite lo mismo pero con el tercer modulo
                                                             print("id: ", r["id"])
                                                             print("nomdre: ", r["nombre"])
                                                             print("apellido: ", r["apellido"])
@@ -1165,7 +1166,7 @@ while bool==True:#utilizamos un while para la creacion de un bucle
                                                 for r in i["grupo"]:
                                                     if "modulo4" in r["modulos"]:
                                                         if r["modulos"]["modulo4"]=="aprobado":
-                                                            print("------------------------")
+                                                            print("------------------------")#se repite lo mismo pero con el cuarto modulo
                                                             print("id: ", r["id"])
                                                             print("nomdre: ", r["nombre"])
                                                             print("apellido: ", r["apellido"])
@@ -1193,7 +1194,7 @@ while bool==True:#utilizamos un while para la creacion de un bucle
                                                 for r in i["grupo"]:
                                                     if "modulo5" in r["modulos"]:
                                                         if r["modulos"]["modulo5"]=="aprobado":
-                                                            print("------------------------")
+                                                            print("------------------------")#se repite lo mismo pero con el quinto modulo
                                                             print("id: ", r["id"])
                                                             print("nomdre: ", r["nombre"])
                                                             print("apellido: ", r["apellido"])
@@ -1215,23 +1216,23 @@ while bool==True:#utilizamos un while para la creacion de un bucle
                                                             print("")
                                                 notasmodulos()
                                             if opc6==6:
-                                                diez=False
+                                                diez=False#si escoje la opcion 6 se termina el bucle
                                         except ValueError:
                                             print("ingresa una opcion valida")
                             lola=input("quieres volver al menu de reportes (si)(no)\n")
                             if lola=="si":
-                                opcion6=False
-                        menureportes()
+                                opcion6=False#si acepta se termina el bucle 
+                        menureportes()#y se muestra el menu de reportes
 
                     if opc==7:
-                        mjb=False
+                        mjb=False#si escoje la opcion 7 se finaliza la opcion de reportes
                         menu()
 
                 except ValueError:
                     print("INGRESA UNA OPCIÓN VALIDA")
         if opc==4:
             print("HASTA LA PROXIMA\nPROGRAMA FINALIZADO :)")
-            bool=False
+            bool=False#se finaliza el programa
     except ValueError:
        print("INGRESA UNA OPCIÓN VALIDA")
 
