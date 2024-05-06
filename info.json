@@ -32,7 +32,7 @@
                     {
                         "id": "1",
                         "nombre": "yurley",
-                        "apellido": "garcia",
+                        "apellido": "botello",
                         "edad": "17",
                         "direccion": "10-call 3",
                         "acudiente": "ana",
@@ -225,7 +225,7 @@
             {
                 "id": 1,
                 "nombre": "pedro",
-                "apellido": "canizares",
+                "apellido": "caceres",
                 "Telefono": 3212231223,
                 "user": "pedro",
                 "contrase\u00f1a": "p123",
@@ -236,15 +236,17 @@
                 "id": 2,
                 "nombre": "michael",
                 "apellido": " rodriguez",
-                "edad": "27",
+                "Telefono": 3212256733,
                 "user": "michael",
                 "contrase\u00f1a": "m123",
+                "edad": "27",
                 "ruta": []
             },
             {
                 "id": 3,
                 "nombre": "orbin",
                 "apellido": "contreras",
+                "Telefono": 3212245623,
                 "user": "orbin",
                 "contrase\u00f1a": "o123",
                 "edad": "30",
@@ -261,21 +263,7 @@
             }
         ],
         "ingreso": [
-            {
-                "id": "de21",
-                "nombre": "err",
-                "apellido": "reut",
-                "edad": "yurrtr",
-                "direccion": "dt",
-                "acudiente": "",
-                "telefono": {
-                    "celular": 3412324,
-                    "fijo": 123435
-                },
-                "estado": "progreso de ingreso",
-                "riesgo": "",
-                "modulos": {}
-            },
+            
             {
                 "id": "11",
                 "nombre": "jesus",
@@ -287,7 +275,7 @@
                     "celular": 324167823,
                     "fijo": 33462
                 },
-                "estado": "cursando",
+                "estado": "progreso de ingreso",
                 "riesgo": "",
                 "modulos": {}
             }
