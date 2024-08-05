@@ -3,10 +3,10 @@
 Cuenta con un archivo python y un json.
 
 ## Tabla De Contenido
-| Índice | Título |
-|--|------|
-| 1 | Proyecto| 
-| 2 | info |
+| Índice | Título |Descripción|
+|--|------|------|
+| 1 | Proyecto| Plataforma|
+| 2 | info | Info de campers , trainers y coordinador|
 
 
 ## Instalación
