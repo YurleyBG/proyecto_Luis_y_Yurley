@@ -26,7 +26,7 @@ Recuerda tener instalado python en tu máquina local.
 + Python
 
 ## Estructura 
-![alt text](image.png)
+![alt text](pinctures/image.png)
 
 ## Crédito 
 Este  proyecto filtro fue desarrollado por Yurley Botello y Luis Miguel Caicedo.
