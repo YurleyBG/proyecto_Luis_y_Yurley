@@ -1,4 +1,5 @@
 import json 
+from datetime import datetime,timezone
 def abrirArchivo():
     datos=[]
     with open("info.json", encoding="utf-8") as openfile:#esto es para abrir el json
@@ -1231,6 +1232,41 @@ while bool==True:#utilizamos un while para la creacion de un bucle
                 except ValueError:
                     print("INGRESA UNA OPCIÓN VALIDA")
         if opc==4:
+            miArchivo=abrirArchivo()
+            print("////REGISTRO DE ESTUDIANTES/////")
+            pedir_nombre=input("Ingresa el nombre del estudiante")#Ingresar nombre de estudiante para traer la id 
+            for i in miArchivo[0]["grupos"]:
+                for x in i["grupo"]:
+                    if pedir_nombre==x["nombre"]:
+                        id_registro_camper=x["id"]
+            fecha=datetime.now(timezone.utc)
+            fecha_organizada=fecha.strftime("%Y-%m-%d %H:%M:%S")#traer l fecha del momento de ingreso
+            actividades=input("Escribe las actividades realizadas\n")
+            buclecito=True
+            while buclecito==True:
+                #ingreso del estado de la sesión
+                opc_estado=input("""
+                  ----Estado de la sesión----
+                  1. Activa
+                  2. Inactiva 
+                  3. Finalizada
+                  escoje una opción: 
+                  """)
+                if opc_estado=="1":
+                    estado="Activa"
+                    buclecito=False
+                    
+                if opc_estado=="2":
+                    estado="Inactiva"
+                    buclecito=False
+                    
+                if opc_estado=="3":
+                    estado="Finalizada"
+                    buclecito=False
+            #guardar los registros en el json
+            archivo[0]["Registro_de_Entrada"].append({"id":id_registro_camper,"fecha_entrada":fecha_organizada,"estado":estado})
+            guardarArchivo(archivo)
+        if opc==5:
             print("HASTA LA PROXIMA\nPROGRAMA FINALIZADO :)")
             bool=False#se finaliza el programa
     except ValueError:
