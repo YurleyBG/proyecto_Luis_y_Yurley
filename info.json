@@ -263,7 +263,6 @@
             }
         ],
         "ingreso": [
-            
             {
                 "id": "11",
                 "nombre": "jesus",
@@ -280,6 +279,13 @@
                 "modulos": {}
             }
         ],
-        "Registro_de_Entrada":[]
+        "Registro_de_Entrada": [
+            {
+                "id": "234",
+                "fecha_entrada": "2024-08-15 16:50:39",
+                "actividades_realizadas": "una tarea",
+                "estado": "Inactiva"
+            }
+        ]
     }
 ]

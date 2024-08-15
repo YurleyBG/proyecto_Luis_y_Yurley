@@ -1235,11 +1235,14 @@ while bool==True:#utilizamos un while para la creacion de un bucle
         if opc==4:
             miArchivo=abrirArchivo()
             print("////REGISTRO DE ESTUDIANTES/////")
-            pedir_nombre=input("Ingresa el nombre del estudiante")#Ingresar nombre de estudiante para traer la id 
-            for i in miArchivo[0]["grupos"]:
-                for x in i["grupo"]:
-                    if pedir_nombre==x["nombre"]:
-                        id_registro_camper=x["id"]
+            x1=True
+            while x1==True:
+                pedir_nombre=input("Ingresa el nombre del estudiante")#Ingresar nombre de estudiante para traer la id 
+                for i in miArchivo[0]["grupos"]:
+                    for x in i["grupo"]:
+                        if pedir_nombre==x["nombre"]:
+                            id_registro_camper=x["id"]
+                            x1=False
             fecha=datetime.now(timezone.utc)
             fecha_organizada=fecha.strftime("%Y-%m-%d %H:%M:%S")#traer l fecha del momento de ingreso
             actividades=input("Escribe las actividades realizadas\n")
@@ -1265,8 +1268,9 @@ while bool==True:#utilizamos un while para la creacion de un bucle
                     estado="Finalizada"
                     buclecito=False
             #guardar los registros en el json
-            archivo[0]["Registro_de_Entrada"].append({"id":id_registro_camper,"fecha_entrada":fecha_organizada,"actividades_realizadas":actividades, "estado":estado})
-            guardarArchivo(archivo)
+            miArchivo[0]["Registro_de_Entrada"].append({"id":id_registro_camper,"fecha_entrada":fecha_organizada,"actividades_realizadas":actividades, "estado":estado})
+            guardarArchivo(miArchivo)
+            menu()
         if opc==5:
             print("HASTA LA PROXIMA\nPROGRAMA FINALIZADO :)")
             bool=False#se finaliza el programa
