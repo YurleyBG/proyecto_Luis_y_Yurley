@@ -1237,7 +1237,7 @@ while bool==True:#utilizamos un while para la creacion de un bucle
             print("////REGISTRO DE ESTUDIANTES/////")
             x1=True
             while x1==True:
-                pedir_nombre=input("Ingresa el nombre del estudiante")#Ingresar nombre de estudiante para traer la id 
+                pedir_nombre=input("Ingresa el nombre del estudiante: ")#Ingresar nombre de estudiante para traer la id 
                 for i in miArchivo[0]["grupos"]:
                     for x in i["grupo"]:
                         if pedir_nombre==x["nombre"]:
@@ -1270,6 +1270,7 @@ while bool==True:#utilizamos un while para la creacion de un bucle
             #guardar los registros en el json
             miArchivo[0]["Registro_de_Entrada"].append({"id":id_registro_camper,"fecha_entrada":fecha_organizada,"actividades_realizadas":actividades, "estado":estado})
             guardarArchivo(miArchivo)
+            print("Se ha creado con exito el registro!")
             menu()
         if opc==5:
             print("HASTA LA PROXIMA\nPROGRAMA FINALIZADO :)")
