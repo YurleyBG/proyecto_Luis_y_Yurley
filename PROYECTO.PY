@@ -1278,5 +1278,5 @@ while bool==True:#utilizamos un while para la creacion de un bucle
     except ValueError:
        print("INGRESA UNA OPCIÓN VALIDA")
 
-#desarrollado por Caicedo Bermon Luis Miguel c.c: 1090381345
-#desarrollado por Botello Garcia Yurley t.i: 1066085539
+#desarrollado por Caicedo Bermon Luis Miguel C.C: 1090381345
+#desarrollado por Botello Garcia Yurley T.I: 1066085539
