@@ -1264,7 +1264,7 @@ while bool==True:#utilizamos un while para la creacion de un bucle
                     estado="Finalizada"
                     buclecito=False
             #guardar los registros en el json
-            archivo[0]["Registro_de_Entrada"].append({"id":id_registro_camper,"fecha_entrada":fecha_organizada,"estado":estado})
+            archivo[0]["Registro_de_Entrada"].append({"id":id_registro_camper,"fecha_entrada":fecha_organizada,"actividades_realizadas":actividades, "estado":estado})
             guardarArchivo(archivo)
         if opc==5:
             print("HASTA LA PROXIMA\nPROGRAMA FINALIZADO :)")
