@@ -15,7 +15,8 @@ def menu():#menu principal
           "1 MODULO DE COORDINACION ACADEMICA\n"
           "2 MODULO DE TRAINER\n"
           "3 MODULO DE REPORTE\n"
-          "4 SALIR")
+          "4 REGISTRAR ENTRADA\n"
+          "5 SALIR")
     
 def menucoordinador():#submenu principal del coordinador
     print("::::::::::MENÚ::::::::::\n"
@@ -1231,6 +1232,8 @@ while bool==True:#utilizamos un while para la creacion de un bucle
                 except ValueError:
                     print("INGRESA UNA OPCIÓN VALIDA")
         if opc==4:
+            print("")
+        if opc==5:
             print("HASTA LA PROXIMA\nPROGRAMA FINALIZADO :)")
             bool=False#se finaliza el programa
     except ValueError:
